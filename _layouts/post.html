@@ -2,53 +2,66 @@
 layout: default
 ---
 
-<!-- Page Header -->
-{% if page.background %}
-<header class="masthead" style="background-image: url('{{ page.background | prepend: site.baseurl | replace: '//', '/' }}')">
-  {% else %}
-  <header class="masthead">
-    {% endif %}
-    <div class="overlay"></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-          <div class="post-heading">
-            <h1>{{ page.title }}</h1>
-            {% if page.subtitle %}
-            <h2 class="subheading">{{ page.subtitle }}</h2>
-            {% endif %}
-            <span class="meta">Posted by
-              <a href="#">{% if page.author %}{{ page.author }}{% else %}{{ site.author }}{% endif %}</a>
-              on {{ page.date | date: '%B %d, %Y' }} &middot; {% include read_time.html
-              content=page.content %}
-            </span>
-          </div>
+{% assign assets_base_url = site.url %}
+{% if site.cdn.jsdelivr.enabled %}
+{% assign assets_base_url = "https://cdn.jsdelivr.net/gh/" | append: site.repository | append: '@master' %}
+{% endif %}
+<section class="collection-head small geopattern" data-pattern-id="{{ page.title | truncate: 15, ''}}">
+<div class="container">
+  <div class="columns">
+    <div class="column three-fourths">
+      <div class="collection-title">
+        <h1 class="collection-header">{{ page.title }}</h1>
+        <div class="collection-info">
+          {% if page.date %}
+          <span class="meta-info">
+            <span class="octicon octicon-calendar"></span> {{ page.date | date: "%Y/%m/%d" }}
+          </span>
+          {% endif %}
+          {% for cat in page.categories %}
+          <span class="meta-info">
+            <span class="octicon octicon-file-directory"></span>
+            <a href="{{ site.url }}/categories/#{{ cat }}" title="{{ cat }}">{{ cat }}</a>
+          </span>
+          {% endfor %}
+          {% if site.components.word_count.enabled %}
+          <span class="meta-info">
+            <span class="octicon octicon-clock"></span>
+            共 {{ page.content | strip_html | strip_newlines | remove: " " | size }} 字，约 {{ page.content | strip_html | strip_newlines | remove: " " | size | divided_by: 350 | plus: 1 }} 分钟
+          </span>
+          {% endif %}
         </div>
       </div>
     </div>
-  </header>
-
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
-
-        {{ content }}
-
-        <hr>
-
-        <div class="clearfix">
-
-          {% if page.previous.url %}
-          <a class="btn btn-primary float-left" href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{ page.previous.title }}">&larr; Previous<span class="d-none d-md-inline">
-              Post</span></a>
-          {% endif %}
-          {% if page.next.url %}
-          <a class="btn btn-primary float-right" href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{ page.next.title }}">Next<span class="d-none d-md-inline">
-              Post</span> &rarr;</a>
-          {% endif %}
-
-        </div>
-
+    <div class="column one-fourth mobile-hidden">
+      <div class="collection-title">
+        {% include sidebar-qrcode.html %}
       </div>
     </div>
   </div>
+</div>
+</section>
+<!-- / .banner -->
+<section class="container content">
+<div class="columns">
+  <div class="column three-fourths" >
+    {% include content-header-ad.html %}
+    <article class="article-content markdown-body">
+    {{ content }}
+    {% include copyright.html %}
+    </article>
+    <div class="share">
+      {% include sns-share.html %}
+    </div>
+    {% include content-footer-ad.html %}
+    <div class="comment">
+      {% include comments.html %}
+    </div>
+  </div>
+  <div class="column one-fourth">
+    {% include sidebar-search.html %}
+    {% include sidebar-post-nav.html %}
+  </div>
+</div>
+</section>
+<!-- /section.content -->

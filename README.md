@@ -1,154 +1,95 @@
-# [Start Bootstrap - Clean Blog Jekyll](https://startbootstrap.com/themes/clean-blog-jekyll/) - Official Jekyll Version
+# 码志
 
-[Clean Blog Jekyll](https://startbootstrap.com/themes/clean-blog-jekyll/) is a stylish, responsive blog theme for [Bootstrap](https://getbootstrap.com/) created by [Start Bootstrap](https://startbootstrap.com/). This theme features a blog homepage, about page, contact page, and an example post page along with a working contact form powered by [Formspree](https://formspree.io/).
+我的个人博客：<https://mazhuang.org>，欢迎 Star 和 Fork。
 
-This repository holds the official Jekyll version of the Clean Blog theme on Start Bootstrap!
+## 概览
 
-## Preview
+<!-- vim-markdown-toc GFM -->
 
-[![Clean Blog (Jekyll) Preview](https://startbootstrap.com/assets/img/screenshots/themes/clean-blog-jekyll.png)](http://StartBootstrap.github.io/startbootstrap-clean-blog-jekyll/)
+* [效果预览](#效果预览)
+* [Fork 指南](#fork-指南)
+* [使用文档](#使用文档)
+* [经验与思考](#经验与思考)
+* [联系我](#联系我)
+* [致谢](#致谢)
 
-**[View Live Preview](http://StartBootstrap.github.io/startbootstrap-clean-blog-jekyll/)**
+<!-- vim-markdown-toc -->
 
-## Installation & Setup
+## 效果预览
 
-### Using RubyGems
+**[在线预览 &rarr;](https://mazhuang.org)**
 
-When installing the theme using RubyGems, demo images, posts, and pages are not included. Follow the instructions below for complete setup.
+![screenshot home](https://mazhuang.org/assets/images/screenshots/home.png)
 
-1. (Optional) Create a new Jekyll site: `jekyll new my-site`
-2. Replace the current theme in your `Gemfile` with `gem "jekyll-theme-clean-blog"`.
-3. Install the theme (run the command inside your site directory): `bundle install`
-4. Replace the current theme in your `_config.yml` file with `theme: jekyll-theme-clean-blog`.
-5. Build your site: `bundle exec jekyll serve`
+## Fork 指南
 
-Assuming there are no errors and the site is building properly, follow these steps next:
+Fork 本项目之后，还需要做一些事情才能让你的页面「正确」跑起来。
 
-1. Create the following pages if they do not exist already (or change the extension of existing markdown files from `.md` to `.html`):
+1. 正确设置项目名称与分支。
 
-   * `index.html` - set to `layout: home`
-   * `about.html` - set to `layout: page`
-   * `contact.html` - set to `layout: page`
-   * `posts/index.html` - set to `layout: page` (you will also need to create a `posts` directory)
+   按照 GitHub Pages 的规定，名称为 `username.github.io` 的项目的 master 分支，或者其它名称的项目的 gh-pages 分支可以自动生成 GitHub Pages 页面。
 
-2. Configure the `index.html` front matter. Example:
+2. 修改域名。
 
-    ```markdown
-    ---
-    layout: home
-    background: '/PATH_TO_IMAGE'
-    ---
-    ```
+   如果你需要绑定自己的域名，那么修改 CNAME 文件的内容，并参考 [配置 GitHub Pages 站点的自定义域](https://docs.github.com/cn/pages/configuring-a-custom-domain-for-your-github-pages-site) 做好配置；如果不需要绑定自己的域名，那么删掉 CNAME 文件。
 
-3. Configure the `about.html`, `contact.html`, and `posts/index.html` front matter. Example:
+3. 修改配置。
 
-    ```markdown
-    ---
-    layout: page
-    title: Page Title
-    description: This is the page description.
-    background: '/PATH_TO_IMAGE'
-    ---
-    ```
+   网站的配置基本都集中在 \_config.yml 文件中，将其中与个人信息相关的部分替换成你自己的，比如网站的 url、title、subtitle 和第三方评论模块的配置等。
 
-4. For each post in the `_posts` directory, update the front matter. Example:
+   **评论模块：** 目前支持 disqus、gitment 和 gitalk，选用其中一种就可以了，推荐使用 gitalk。它们各自的配置指南链接在 \_config.yml 文件的 Comments 一节里都贴出来了。
 
-    ```markdown
-    ---
-    layout: post
-    title: "Post Title"
-    subtitle: "This is the post subtitle."
-    date: YYYY-MM-DD HH:MM:SS
-    background: '/PATH_TO_IMAGE'
-    ---
-    ```
+   **注意：** 如果使用 disqus，因为 disqus 处理用户名与域名白名单的策略存在缺陷，请一定将 disqus.username 修改成你自己的，否则请将该字段留空。我对该缺陷的记录见 [Issues#2][3]。
 
-    For reference, look at the [demo repository](https://github.com/StartBootstrap/startbootstrap-clean-blog-jekyll) to see how the files are set up.
+4. 删除我的文章与图片。
 
-5. Add the form to the `contact.html` page. Add the following code to your `contact.html` page:
+   如下文件夹中除了 template.md 文件外，都可以全部删除，然后添加你自己的内容。
 
-    ```html
-    <form name="sentMessage" id="contactForm" novalidate>
-      <div class="control-group">
-        <div class="form-group floating-label-form-group controls">
-          <label>Name</label>
-          <input type="text" class="form-control" placeholder="Name" id="name" required data-validation-required-message="Please enter your name.">
-          <p class="help-block text-danger"></p>
-        </div>
-      </div>
-      <div class="control-group">
-        <div class="form-group floating-label-form-group controls">
-          <label>Email Address</label>
-          <input type="email" class="form-control" placeholder="Email Address" id="email" required data-validation-required-message="Please enter your email address.">
-          <p class="help-block text-danger"></p>
-        </div>
-      </div>
-      <div class="control-group">
-        <div class="form-group col-xs-12 floating-label-form-group controls">
-          <label>Phone Number</label>
-          <input type="tel" class="form-control" placeholder="Phone Number" id="phone" required data-validation-required-message="Please enter your phone number.">
-          <p class="help-block text-danger"></p>
-        </div>
-      </div>
-      <div class="control-group">
-        <div class="form-group floating-label-form-group controls">
-          <label>Message</label>
-          <textarea rows="5" class="form-control" placeholder="Message" id="message" required data-validation-required-message="Please enter a message."></textarea>
-          <p class="help-block text-danger"></p>
-        </div>
-      </div>
-      <br>
-      <div id="success"></div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary" id="sendMessageButton">Send</button>
-      </div>
-    </form>
-    ```
+   * \_posts 文件夹中是我已发布的博客文章。
+   * \_drafts 文件夹中是我尚未发布的博客文章。
+   * \_wiki 文件夹中是我已发布的 wiki 页面。
+   * images 文件夹中是我的文章和页面里使用的图片。
 
-    Make sure you have the `email` setting in your `_config.yml` file set to a working email address! Once this is set, fill out the form and then check your email, verify the email address using the link sent to you by Formspree, and then the form will be working!
+5. 修改「关于」页面。
 
-6. Build your site: `bundle exec jekyll serve`
+   pages/about.md 文件内容对应网站的「关于」页面，里面的内容多为个人相关，将它们替换成你自己的信息，包括 \_data 目录下的 skills.yml 和 social.yml 文件里的数据。
 
-### Using Core Files
+## 使用文档
 
-When using the core files, the demo images, posts, and pages are all included with the download. After following the instructions below, you can then go and change the content of the pages and posts.
+- [本博客模板常见问题 Q & A](https://mazhuang.org/2020/05/03/blog-template-qna/)。
 
-1. [Download](https://github.com/StartBootstrap/startbootstrap-clean-blog-jekyll/archive/master.zip) or Clone the repository.
-2. Update the following configuration settings in your `_config.yml` file:
+- 在本地预览博客效果可以参考 [Setting up your Pages site locally with Jekyll][2]。
 
-    * `baseurl`
-    * `url`
-    * `title`
-    * `email` (after setting this setting to a working email address, fill out the form on the contact page and send it - then check your email and verify the address and the form will send you messages when used)
-    * `description`
-    * `author`
-    * `twitter_username` (Optional)
-    * `facebook_username` (Optional)
-    * `github_username` (Optional)
-    * `linkedin_username` (Optional)
-    * `instagram_username` (Optional)
+## 经验与思考
 
-3. Build your site: `bundle exec jekyll serve`
+* 排版建议遵照一定的规范，推荐 [中文文案排版指北（简体中文版）][1]。
 
-## Bugs and Issues
+* 简约，尽量每个页面都不展示多余的内容。
 
-Have a bug or an issue with this template? [Open a new issue](https://github.com/StartBootstrap/startbootstrap-clean-blog-jekyll/issues) here on GitHub!
+* 有时一图抵千言，有时可能只会拖慢网页加载速度。
 
-## About
+* 言之有物，不做无痛之呻吟。
 
-Start Bootstrap is an open source library of free Bootstrap templates and themes. All of the free templates and themes on Start Bootstrap are released under the MIT license, which means you can use them for any purpose, even for commercial projects.
+* 如果写技术文章，那先将技术原理完全理清了再开始写，一边摸索技术一边组织文章效率较低。
 
-* <https://startbootstrap.com>
-* <https://twitter.com/SBootstrap>
+* 杜绝难断句、难理解的长句子，如果不能将其拆分成几个简洁的短句，说明脑中的理解并不清晰。
 
-Start Bootstrap was created by and is maintained by **[David Miller](http://davidmiller.io/)**.
+* 可以学习一下那些高质量的博主，他们的行文，内容组织方式，有什么值得借鉴的地方。
 
-* <http://davidmiller.io>
-* <https://twitter.com/davidmillerhere>
-* <https://github.com/davidtmiller>
+## 联系我
 
-Start Bootstrap is based on the [Bootstrap](https://getbootstrap.com/) framework created by [Mark Otto](https://twitter.com/mdo) and [Jacob Thorton](https://twitter.com/fat).
+如果对本博客模板或者内容有任何建议，可以通过 [Issues](https://github.com/mzlogin/mzlogin.github.io/issues) 或者微信公众号「闷骚的程序员」与我取得联系。
 
-## Copyright and License
+<img width="192px" height="192px" src="https://mazhuang.org/assets/images/qrcode.jpg"/>
 
-Copyright 2013-2021 Start Bootstrap LLC. Code released under the [MIT](https://github.com/StartBootstrap/startbootstrap-clean-blog-jekyll/blob/master/LICENSE) license.
+## 致谢
+
+本博客外观基于 [DONGChuan](https://dongchuan.github.io) 修改，感谢！
+
+Thanks for JetBrains' support.
+
+<a href="https://www.jetbrains.com/?from=mzlogin.github.io"><img src="./assets/images/jetbrains.svg"/></a>
+
+[1]: https://github.com/mzlogin/chinese-copywriting-guidelines
+[2]: https://help.github.com/articles/setting-up-your-pages-site-locally-with-jekyll/
+[3]: https://github.com/mzlogin/mzlogin.github.io/issues/2

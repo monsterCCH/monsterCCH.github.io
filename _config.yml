@@ -1,25 +1,165 @@
-title:              咸鱼的博客
-email:              996525605@qq.com
-description:        用文字记录发生 用心灵感受未来
-author:             Start Bootstrap
-baseurl:            ""
-url:                "https://monsterCCH.github.io"
+# ---------------- #
+#   Main Configs   #
+# ---------------- #
+baseurl:
+url: https://monsterCCH.github.io
+date_format: "ordinal"
+title: JUST A BLOG
+subtitle: "record existed"
+description: "爱打游戏的小怪兽"
+keywords: CCH, life, C++, operating system
+timezone: Asia/Shanghai
+encoding: "utf-8"
+repository: monsterCCH/monsterCCH.github.io
+# 对 css 和 js 资源的 cdn 加速配置
+cdn:
+    jsdelivr:
+        enabled: true
+# 可选组件配置
+components:
+    # 分享
+    # weibo,qq,wechat,douban,qzone,linkedin,facebook,twitter
+    share:
+        enabled: false
+        hide-platforms: qq,facebook
+    # 不蒜子访问统计
+    busuanzi:
+        enabled: false
+        start_date: 2020-05-03
+    # My Popular Repositories
+    side_bar_repo:
+        enabled: true
+        limit: 5
+    # 文章字数统计
+    word_count:
+        enabled: true
+    # 页面右上角，以及「关于」页面的二维码
+    # 修改图片请替换 assets/images/qrcode.jpg
+    qrcode:
+        enabled: false
+        image_alt: 爱打游戏的小怪兽
+# 压缩页面内容
+compress_html:
+  clippings: all
+  comments: ["<!--", "-->"]
+# 代码高亮风格，支持的 theme 列表见 https://github.com/mzlogin/rouge-themes
+highlight_theme: github
 
-# Social Profiles
-twitter_username:   SBootstrap
-github_username:    StartBootstrap
-facebook_username:  StartBootstrap
-instagram_username:  
-linkedin_username:
+# ---------------- #
+#      Author      #
+# ---------------- #
+author: ChunHui Cao
+organization:
+organization_url: 
+github_username: monsterCCH
+location: NanJing, China
+email: c996525605@gmail.com
 
-# Add your google-analytics ID here to activate google analytics
-google_analytics:   UA-XXXXXXXXX-X # out your google-analytics code
+# ---------------- #
+#    Navigation    #
+# ---------------- #
+navs:
+  -
+    href: /
+    label: 首页
 
-# Build settings
-markdown:           kramdown
-paginate:           5
-paginate_path:      "/posts/page:num/"
+  -
+    href: /categories/
+    label: 分类
+
+#   -
+#     href: /archives/
+#     label: 归档
+
+#   -
+#     href: /open-source/
+#     label: 开源
+
+  -
+    href: /wiki/
+    label: 维基
+
+  -
+    href: /links/
+    label: 链接
+
+  -
+    href: /about/
+    label: 关于
+
+# ---------------- #
+#       RSS        #
+# ---------------- #
+subscribe_rss: /feed.xml
+
+# ---------------- #
+#      Jekyll      #
+# ---------------- #
+markdown: kramdown
+kramdown:
+    input: GFM
+highlighter: rouge
+paginate: 10
+lsi: false
+quiet: false
+excerpt_separator: "\n\n"
+permalink: /:year/:month/:day/:title/
 plugins:
-  - jekyll-feed
-  - jekyll-paginate
-  - jekyll-sitemap ## Uncomment this line to silently generate a sitemaps.org compliant sitemap for your Jekyll site
+    - jekyll-github-metadata
+    - rouge
+#     - jekyll-html-pipeline
+    - jekyll-paginate
+    - jekyll-sitemap
+    - jekyll-feed
+    - jemoji
+#     - jekyll-mentions
+collections:
+    wiki:
+        output: true
+        permalink: /wiki/:path/
+
+# ---------------- #
+#      Comments    #
+# ---------------- #
+# support provider: disqus, gitment, gitalk
+comments_provider: gitalk
+# !!!重要!!! 请修改下面这些信息为你自己申请的
+# !!!Important!!! Please modify infos below to yours
+# https://disqus.com
+disqus:
+    username: 
+# https://imsun.net/posts/gitment-introduction/
+gitment:
+    owner: mzlogin
+    repo: blog-comments
+    oauth:
+        client_id: d2e1cbbd298958076462
+        client_secret: b42a4178e5fd4a7cf63189ef4b1453b05c375709
+# https://github.com/gitalk/gitalk#install
+gitalk:
+    owner: monsterCCH
+    repo: gittalk_comment
+    clientID: d69105b8d073af83b0e5
+    clientSecret: 108860410dea34a772f9ec79b04babba533d8644
+# 在使用其它评论组件时可点击显示 Disqus
+lazy_load_disqus : false
+
+# ---------------- #
+#      Search      #
+# ---------------- #
+simple_jekyll_search:
+    # 是否支持全文搜索
+    fulltext: true
+    # 最多显示多少条搜索结果
+    limit: 10
+
+# ---------------- #
+#      Google      #
+# ---------------- #
+google:
+    analytics_id: UA-80669434-1
+    adsense:
+        footer: true
+        sidebar: true 
+        content_header: true
+        content_footer: false
