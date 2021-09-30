@@ -1,6 +1,7 @@
 _site/
 *.sw[po]
 *.~vsd
+*.idea
 \#*\#
 *~
 .DS_Store
