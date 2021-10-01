@@ -4,10 +4,10 @@
 baseurl:
 url: https://monsterCCH.github.io
 date_format: "ordinal"
-title: JUST A BLOG
-subtitle: "record existed"
-description: "爱打游戏的小怪兽"
-keywords: CCH, life, C++, operating system
+title: CCH'S BLOG
+subtitle: "记录发生，拥抱未来"
+description: "一个普通的博客而已"
+keywords: Confessional, Life, Linux, Security, Essay, C++, Operating System
 timezone: Asia/Shanghai
 encoding: "utf-8"
 repository: monsterCCH/monsterCCH.github.io
@@ -28,7 +28,7 @@ components:
         start_date: 2020-05-03
     # My Popular Repositories
     side_bar_repo:
-        enabled: true
+        enabled: false
         limit: 5
     # 文章字数统计
     word_count:
@@ -130,11 +130,11 @@ disqus:
     username: 
 # https://imsun.net/posts/gitment-introduction/
 gitment:
-    owner: mzlogin
-    repo: blog-comments
+    owner:
+    repo:
     oauth:
-        client_id: d2e1cbbd298958076462
-        client_secret: b42a4178e5fd4a7cf63189ef4b1453b05c375709
+        client_id:
+        client_secret:
 # https://github.com/gitalk/gitalk#install
 gitalk:
     owner: monsterCCH
