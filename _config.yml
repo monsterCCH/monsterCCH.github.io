@@ -5,8 +5,8 @@ baseurl:
 url: https://monsterCCH.github.io
 date_format: "ordinal"
 title: CCH'S BLOG
-subtitle: "记录发生，拥抱未来"
-description: "一个普通的博客而已"
+subtitle: "用文字记录发生，用心灵感受未来"
+description: "博客就是一个博客"
 keywords: Confessional, Life, Linux, Security, Essay, C++, Operating System
 timezone: Asia/Shanghai
 encoding: "utf-8"

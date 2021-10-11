@@ -1,18 +1,18 @@
 ---
 layout: page
 title: About
-description: 打码改变世界
-keywords: Zhuang Ma, 马壮
+description: 即非美玉, 也非瓦砾
+keywords: Chunhui Cao, 曹春晖
 comments: true
 menu: 关于
 permalink: /about/
 ---
 
-我是马壮，码而生，码而立。
+我是monster，即非美玉， 也非瓦砾。
 
-仰慕「优雅编码的艺术」。
+渴望找到属于自己的「目的地」。
 
-坚信熟能生巧，努力改变人生。
+能否到达「目的地」并不重要，而是有了「目的地」，便有了方向。
 
 ## 联系
 
