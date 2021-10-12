@@ -37,7 +37,7 @@ components:
     # 修改图片请替换 assets/images/qrcode.jpg
     qrcode:
         enabled: false
-        image_alt: 爱打游戏的小怪兽
+        image_alt: LALA~LA~~
 # 压缩页面内容
 compress_html:
   clippings: all

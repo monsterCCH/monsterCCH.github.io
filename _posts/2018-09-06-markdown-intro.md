@@ -325,7 +325,7 @@ Markdown 支持行内式链接和引用式链接。
 
 **预览效果：**
 
-![Alt text](https://mazhuang.org/favicon.ico "favicon")
+![Alt text](https://monstercch.github.io/favicon.ico "favicon")
 
 **对应 HTML：**
 
