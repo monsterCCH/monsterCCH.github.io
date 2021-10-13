@@ -67,8 +67,8 @@ keywords: gtest, unittest
 
 GoogleTest 是谷歌的 C++ 测试及模拟框架。用户指导有以下内容：
 
-* [GoogleTest 基础](https://google.github.io/googletest/primer.html)
- -教你如何用GoogleTest编写简单的测试，新手优先阅读。
+* [GoogleTest 基础](https://google.github.io/googletest/primer.html) 
+ -教你如何用GoogleTest编写简单的测试，新手优先阅读。 [中文翻译](./google_test_primer_chinese.md)
 * [GoogleTest 进阶](https://google.github.io/googletest/advanced.html)
  -阅读此指导手册，助你发掘GoogleTest的所有潜能
 * [GoogleTest 样例](https://google.github.io/googletest/samples.html)
