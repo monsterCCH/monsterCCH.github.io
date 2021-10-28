@@ -94,7 +94,7 @@ Json 序列化工具，方便查看Json数据
 
 
 ***
-File | Settings | Appearance & Behavior | Quick Lists 自定义操作列表，可以添加常用的操作到列表中并在Keymap中添加快捷键 
+File -> Settings -> Appearance & Behavior -> Quick Lists 自定义操作列表，可以添加常用的操作到列表中并在Keymap中添加快捷键 
 
 
 ***
@@ -122,7 +122,7 @@ File | Settings | Appearance & Behavior | Quick Lists 自定义操作列表，�
 
 
 ***
-File | Settings | Editor | File Encodings 文件编码设置，根据不同的项目设置统一的文件编码
+File -> Settings -> Editor -> File Encodings 文件编码设置，根据不同的项目设置统一的文件编码
 
 
 ***
@@ -157,7 +157,7 @@ CMAKE 编译设置，可以设置 CMAKE 项目编译类型，选择已经设置�
 
 ![](/images/posts/dev_tools/clion_setting_develop.jpg)
 
-File | Settings | Build, Execution, Deployment | Deployment | Options 配置文件传输选项
+File -> Settings -> Build, Execution, Deployment -> Deployment -> Options 配置文件传输选项
 
 ![](/images/posts/dev_tools/clion_setting_develop_option.jpg)
 
@@ -165,7 +165,7 @@ File | Settings | Build, Execution, Deployment | Deployment | Options 配置文�
 
 
 ***
-[File | Settings | Build, Execution, Deployment | Dynamic Analysis Tools] 
+File -> Settings -> Build, Execution, Deployment -> Dynamic Analysis Tools
 
 CLION 内部集成了Valgrind、Sanitizers、Perf 动态分析工具以提供代码分析
 
@@ -177,12 +177,12 @@ CLION 内部集成了Valgrind、Sanitizers、Perf 动态分析工具以提供代
 
 * **添加书签**
 
-Navigate | Bookmarks
+Navigate ->  Bookmarks
 为了快速找到代码，可以在代码中添加书签，默认添加书签快捷键 CTRL+K+K, 重复取消，CTRL+` 查看书签。
 
 * **查看收藏**
 
-侧边工具 Favorites,点击可查看项目所有收藏的文件 *[File | Add to Favorites 添加当前编辑文件到我的收藏]*、书签以及断点 *[添加 debug 断点点击编辑窗口页码后即可]*。
+侧边工具 Favorites,点击可查看项目所有收藏的文件 *[File -> Add to Favorites 添加当前编辑文件到我的收藏]*、书签以及断点 *[添加 debug 断点点击编辑窗口页码后即可]*。
 
 * **查看粘贴板**
 
@@ -198,7 +198,7 @@ CTRL+SHIFT+E 查看最近定位位置
 
 * **查看修改历史**
 
-File | Local History | show history 可以查看 IDE 的修改历史，如在 IDE 中不小心删除文件，可以在历史记录中还原修复 
+File -> Local History -> show history 可以查看 IDE 的修改历史，如在 IDE 中不小心删除文件，可以在历史记录中还原修复 
 
 * **编辑操作**
 
