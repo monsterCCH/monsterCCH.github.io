@@ -5,7 +5,7 @@ categories: IDE
 description: C/C++ 集成开发环境 CLION 的配置使用说明
 keywords: CLION, IDE, GIT
 ---
-#工具获取
+# 工具获取
 
 CLION 官方下载地址：<https://www.jetbrains.com/clion/download>
 
@@ -33,10 +33,10 @@ Json 序列化工具，方便查看Json数据
 ，如boost.test、ctest、gtest等。所以使用2021版本的 CLION 如非特殊需要都可直接上手使用，如需特别的功能支持也可以去官方的插件市场寻找。
 
 
-#环境配置
+# 环境配置
 ***
 
-##IDE 内存大小设置
+## IDE 内存大小设置
 
 由于 clion 运行在 Java 虚拟机上，所以内存的分配直接影响到使用的流畅度，安装后默认的 Java 运行堆栈内存大小为2048M，
 这对于一些中大型项目以及同时开启多个项目的情况就有点捉襟见肘了，就本人使用体验来说，建议内存分配4G以上，机器资源充足的情况也可多多益善。
@@ -79,7 +79,7 @@ Json 序列化工具，方便查看Json数据
 
 ![](/images/posts/dev_tools/clion_display_item_down.jpg)
 
-##IDE 参数设置
+## IDE 参数设置
 ***
 外观主题设置可根据喜好自行设置，界面UI设置本人设置如下：
 
@@ -127,7 +127,7 @@ File | Settings | Editor | File Encodings 文件编码设置，根据不同的�
 
 ![](/images/posts/dev_tools/clion_setting_file_type.jpg)
 
-##IDE 开发环境设置
+## IDE 开发环境设置
 ***
 
 为了在 IDE 上直接编码编译调试，还需要设置编译工具链，CLION 提供了多种编译链工具，在这选择 Remote Host 方式, Remote Host 使用 SSH 方式连接
@@ -157,7 +157,7 @@ File | Settings | Build, Execution, Deployment | Dynamic Analysis Tools
 
 CLION 内部集成了Valgrind、Sanitizers、Perf 动态分析工具以提供代码分析
 
-#使用技巧
+# 使用技巧
 ***
 
 * **TODO**
@@ -256,7 +256,7 @@ ATL+\ 展示当前文件所有函数 也可在侧边栏 Structure 中查看
 选中内容后 CTRL+ARL+ENTER
 
 
-#CLION 版本控制 GIT 使用
+# CLION 版本控制 GIT 使用
 
 * **GIT 安装**
 
