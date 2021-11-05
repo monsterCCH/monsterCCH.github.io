@@ -175,6 +175,18 @@ CLION 内部集成了Valgrind、Sanitizers、Perf 动态分析工具以提供代
 
 编码中含有待处理事项时，添加注释 *//TODO*，即可在下方工具栏查看待处理事项。
 
+* **窗口导航**
+
+ALT+F2 
+
+*在上方导航窗口快速切换文件及目录*
+
+* **代码生成**
+
+ALT+INSERT 
+
+*快速生成代码框架如 constructors/destructors, getters/setters, various operators, and implemented/overridden functions*
+
 * **添加书签**
 
 Navigate ->  Bookmarks
