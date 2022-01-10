@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Ê¹ÓÃ select ×èÈûÃ¿·ÖÖÓÔËĞĞÒ»´Î
+title: ä½¿ç”¨ select é˜»å¡æ¯åˆ†é’Ÿè¿è¡Œä¸€æ¬¡
 categories: UNIX C
 description: 
 keywords: time, select
