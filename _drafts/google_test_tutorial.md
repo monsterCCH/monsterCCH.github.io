@@ -29,7 +29,7 @@ keywords: gtest, unittest
 
 单元测试是针对代码单元的独立测试，核心是“独立”，优势来源也是这种独立性，而所面临的不足也正是因为其独立性：既然是“独立”，就难以测试与其他代码和依赖环境的相互关系。 单元测试与系统测试是互补而非代替关系。单元测试的优势，正是系统测试的不足，单元测试的不足，又恰是系统测试的优势。不能将单元测试当做解决所有问题的万金油，而需理解其优势与不足，扬长避短，与系统测试相辅相成，实现测试的最大效益
 
-参考：<https://dzone.com/articles/top-8-benefits-of-unit-testing>
+参考：[https://dzone.com/articles/top-8-benefits-of-unit-testing](https://dzone.com/articles/top-8-benefits-of-unit-testing)
 
 ##二、C++ 单元测试框架选型
 
@@ -53,9 +53,9 @@ keywords: gtest, unittest
 
 对于C++语言来说，主要有两款易用的mock框架：gmock和mockcpp。待扩展。
 
-#google test  
+#google test
 
-官方手册地址：<https://google.github.io/googletest/>
+官方手册地址：[https://google.github.io/googletest/](https://google.github.io/googletest/)
 
 参考文章：[玩转Google开源C++单元测试框架Google Test系列(gtest)(总)](https://www.cnblogs.com/coderzh/archive/2009/04/06/1426755.html)
 
@@ -67,19 +67,20 @@ keywords: gtest, unittest
 
 GoogleTest 是谷歌的 C++ 测试及模拟框架。用户指导有以下内容：
 
-* [GoogleTest 基础](https://google.github.io/googletest/primer.html) 
- -教你如何用GoogleTest编写简单的测试，新手优先阅读。 [中文翻译](./google_test_primer_chinese.md)
+* [GoogleTest 基础](https://google.github.io/googletest/primer.html)
+  -教你如何用GoogleTest编写简单的测试，新手优先阅读。 [中文翻译](./google_test_primer_chinese.md)
 * [GoogleTest 进阶](https://google.github.io/googletest/advanced.html)
- -阅读此指导手册，助你发掘GoogleTest的所有潜能
+  -阅读此指导手册，助你发掘GoogleTest的所有潜能
 * [GoogleTest 样例](https://google.github.io/googletest/samples.html)
- -GoogleTest的一些应用样例及描述
+  -GoogleTest的一些应用样例及描述
 * [GoogleTest 问答](https://google.github.io/googletest/faq.html)
- -遇到问题了？想要获取一些提示？来这看看吧^-^
+  -遇到问题了？想要获取一些提示？来这看看吧^-^
 * [傻瓜 Mocking 教程](https://google.github.io/googletest/gmock_for_dummies.html)
- -教你如何创建一个mock对象并在测试中使用它们
+  -教你如何创建一个mock对象并在测试中使用它们
 * [Mocking 食谱](https://google.github.io/googletest/gmock_cook_book.html)
- -包含常见mock用例的使用提示和方法
+  -包含常见mock用例的使用提示和方法
 * [Mocking 备忘录](https://google.github.io/googletest/gmock_cheat_sheet.html)
- -matchers, actions, invariants等便捷参考
+  -matchers, actions, invariants等便捷参考
 * [Mocking 问答](https://google.github.io/googletest/gmock_faq.html)
- -包含一些特定mocking问题的回答
+  -包含一些特定mocking问题的回答
+

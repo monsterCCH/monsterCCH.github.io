@@ -5,11 +5,11 @@ categories: Git
 description: Git 常用操作记录。
 keywords: Git, 版本控制
 ---
-
 ## 常用命令
 
+
 | 功能                      | 命令                                  |
-|:--------------------------|:--------------------------------------|
+| :-------------------------- | :-------------------------------------- |
 | 添加文件/更改到暂存区     | git add filename                      |
 | 添加所有文件/更改到暂存区 | git add .                             |
 | 提交                      | git commit -m msg                     |
@@ -49,7 +49,7 @@ keywords: Git, 版本控制
    pathnameencoding = utf-8
 ```
 
-参考 <http://zengrong.net/post/1249.htm>
+参考 [http://zengrong.net/post/1249.htm](http://zengrong.net/post/1249.htm)
 
 ### 如何处理本地有更改需要从服务器合入新代码的情况？
 
@@ -94,11 +94,13 @@ git merge upstream/master
 ```
 
 ### 如何通过 TortoiseSVN 带的 TortoiseMerge.exe 处理 git 产生的 conflict？
+
 * 将 TortoiseMerge.exe 所在路径添加到 `path` 环境变量。
 * 运行命令 `git config --global merge.tool tortoisemerge` 将 TortoiseMerge.exe 设置为默认的 merge tool。
 * 在产生 conflict 的目录运行 `git mergetool`，TortoiseMerge.exe 会跳出来供你 resolve conflict。
 
   > 也可以运行 `git mergetool -t vimdiff` 使用 `-t` 参数临时指定一个想要使用的 merge tool。
+  >
 
 ### 不想跟踪的文件已经被提交了，如何不再跟踪而保留本地文件？
 
@@ -192,16 +194,17 @@ git clean
 
 可选项：
 
-| 选项                    | 含义                             |
-|-------------------------|----------------------------------|
-| -q, --quiet             | 不显示删除文件名称               |
-| -n, --dry-run           | 试运行                           |
-| -f, --force             | 强制删除                         |
-| -i, --interactive       | 交互式删除                       |
-| -d                      | 删除文件夹                       |
-| -e, --exclude <pattern> | 忽略符合 <pattern> 的文件        |
-| -x                      | 清除包括 .gitignore 里忽略的文件 |
-| -X                      | 只清除 .gitignore 里忽略的文件   |
+
+| 选项              | 含义                             |
+| ------------------- | ---------------------------------- |
+| -q, --quiet       | 不显示删除文件名称               |
+| -n, --dry-run     | 试运行                           |
+| -f, --force       | 强制删除                         |
+| -i, --interactive | 交互式删除                       |
+| -d                | 删除文件夹                       |
+| -e, --exclude     | 忽略符合  的文件                 |
+| -x                | 清除包括 .gitignore 里忽略的文件 |
+| -X                | 只清除 .gitignore 里忽略的文件   |
 
 ### 忽略文件属性更改
 
@@ -362,7 +365,7 @@ cherry-pick 有更多详细的用法，可以参见帮助文档。
 
 ### 命令行自动补全
 
-在 shell 里加载 git-completion 系列脚本，详见 <https://github.com/git/git/tree/master/contrib/completion>
+在 shell 里加载 git-completion 系列脚本，详见 [https://github.com/git/git/tree/master/contrib/completion](https://github.com/git/git/tree/master/contrib/completion)
 
 ### 文件每一行变更明细
 
@@ -421,6 +424,7 @@ git config --global core.editor gvim
 ```
 
 参考：
+
 * [How do I make Git use the editor of my choice for commits?](https://stackoverflow.com/questions/2596805/how-do-i-make-git-use-the-editor-of-my-choice-for-commits)
 * [转：git windows中文 乱码问题解决汇总](http://www.cnblogs.com/youxin/p/3227961.html)
 
@@ -521,31 +525,27 @@ gitk 很方便，但是在 Mac 系统下默认显示很模糊，影响体验。
 
 1. 重新启动机器，按 command + R 等 Logo 和进度条出现，会进入 Recovery 模式，选择顶部的实用工具——终端，运行以下命令：
 
-    ```sh
-    csrutil disable
-    ```
-
+   ```sh
+   csrutil disable
+   ```
 2. 重新启动机器。
-
 3. 编辑 Wish 程序的 plist，启动高分辨率屏支持。
 
-    ```
-    sudo gvim /System/Library/Frameworks/Tk.framework/Versions/Current/Resources/Wish.app/Contents/Info.plist
-    ```
+   ```
+   sudo gvim /System/Library/Frameworks/Tk.framework/Versions/Current/Resources/Wish.app/Contents/Info.plist
+   ```
 
-    在最后的 </dict> 前面加上以下代码
+   在最后的 </dict> 前面加上以下代码
 
-    ```sh
-    <key>NSHighResolutionCapable</key>
-    <true/>
-    ```
-
+   ```sh
+   <key>NSHighResolutionCapable</key>
+   <true/>
+   ```
 4. 更新 Wish.app。
 
-    ```sh
-    sudo touch Wish.app
-    ```
-
+   ```sh
+   sudo touch Wish.app
+   ```
 5. 再次用 1 步骤的方法进入 Recovery 模式，执行 `csrutil enable` 启动对系统文件保护，再重启即可。
 
 参考：[Mac 中解决 gitk 模糊问题](http://roshanca.com/2017/make-gitk-retina-in-mac/)

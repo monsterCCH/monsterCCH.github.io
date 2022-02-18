@@ -29,7 +29,7 @@ net stop mysql
 ### 连接
 
 ```
-mysql -u 用户名 -p密码 -h 服务器IP地址 -P 服务器端MySQL端口号 -D 数据库名
+mysql -u 用户名 -p密码 -h 服务器IP地址 -P 服务器端MySQL端口号 -D 数据库名
 ```
 
 ### 授权
@@ -46,7 +46,7 @@ grant 权限1,权限2,…权限n on 数据库名称.表名称 to 用户名@用�
 
 ```
 mysql -u root
-mysql> SET PASSWORD FOR 'root'@'localhost' = PASSWORD('newpass');
+mysql> SET PASSWORD FOR 'root'@'localhost' = PASSWORD('newpass');
 ```
 
 **方法2**：用 mysqladmin
@@ -153,17 +153,17 @@ select @a/@b;
 ```sql
 SELECT
 table_name,
-    TABLE_SCHEMA,
-    ( DATA_LENGTH + INDEX_LENGTH + DATA_FREE ) / 1024 / 1024 MB,
-    TABLE_ROWS
+    TABLE_SCHEMA,
+    ( DATA_LENGTH + INDEX_LENGTH + DATA_FREE ) / 1024 / 1024 MB,
+    TABLE_ROWS
     FROM
-    information_schema. TABLES
+    information_schema. TABLES
     WHERE
-    TABLE_SCHEMA NOT IN ('information_schema','mysql')
-    ORDER BY
-    MB DESC
-    LIMIT 0,
-    50
+    TABLE_SCHEMA NOT IN ('information_schema','mysql')
+    ORDER BY
+    MB DESC
+    LIMIT 0,
+    50
 ```
 
 查看表中数据、索引、已分配给表但没有使用空间：
@@ -228,3 +228,10 @@ SELECT * FROM Orders LIMIT 30;
 SELECT * FROM Orders LIMIT 10 OFFSET 15; -- 第 16 到第 25 个结果
 SELECT * FROM Orders LIMIT 15, 10; -- 等价于上面
 ```
+
+#### 判断字段值 Value 为空
+
+```sql
+update t_wxuser a set a.updatetime=a.subscribe_time where a.updatetime IS NULL
+```
+
