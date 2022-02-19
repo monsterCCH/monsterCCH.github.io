@@ -6,9 +6,7 @@ description: C++ Wiki
 keywords: C++
 ---
 
-# Óï·¨ÎÊÌâ
+# stringstrean æ‹¼æ¥
 
 ## stringstream
-
-
 
