@@ -6,7 +6,7 @@ description: debug Wiki
 keywords: gdb,debug
 ---
 
-# 打印 char 类型数组
+## 打印 char 类型数组
 
 
 ```
