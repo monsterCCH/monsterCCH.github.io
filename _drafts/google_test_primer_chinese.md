@@ -19,7 +19,7 @@ googletest是由测试技术团队根据Google的特定要求和约束开发的�
 
 ##小心混淆术语
 
->注意：术语Test，Test Case和Test Suite的不同定义可能会引起混淆，因此请注意不要混淆它们。
+> 注意：术语Test，Test Case和Test Suite的不同定义可能会引起混淆，因此请注意不要混淆它们。
 
 注意：术语Test，Test Case和Test Suite的不同定义可能会引起混淆，因此请注意不要混淆它们。
 
@@ -33,9 +33,9 @@ googletest最近开始用术语测试用例与测试套件。首选的API是Test
 
 因此，请注意这些术语的不同定义：
 
-|           含义                | googletest 条款 | ISTQB 术语 |
-| ------------------------------------- | ------ | ---------- |
-| 使用特定的输入值来执行特定的程序路径并验证结果 | TEST() | 	Test Case | 
+| 含义                                           | googletest 条款 | ISTQB 术语 |
+| ---------------------------------------------- | --------------- | ---------- |
+| 使用特定的输入值来执行特定的程序路径并验证结果 | TEST()          | Test Case  |
 
 ##基本概念
 
@@ -66,7 +66,9 @@ for (int i = 0; i < x.size(); ++i) {
   EXPECT_EQ(x[i], y[i]) << "Vectors x and y differ at index " << i;
 }
 ```
+
 任何内容都可以放到ostream流，尤其是C字符串和string对象。如果将宽字符串（wchar_t*，TCHAR*在UNICODEWindows上为模式，或std::wstring）流式传输到声明，则在打印时将其转换为UTF-8。
 
 ##基本断言
 这些断言进行基本的真/假条件测试。
+

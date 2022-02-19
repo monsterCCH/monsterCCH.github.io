@@ -75,3 +75,52 @@ lsof -c Vim
 ```
 
 注意程序名区分大小写。
+
+## 使用场景
+
+### 删除文件排除文件或目录
+
+#### extglob模式
+
+extglob 打开后 shell 可以识别五个模式匹配操作符，使文件匹配更方便
+
+`shopt -s extglob 开启`
+
+`shopt -u extglob 关闭`
+
+开启后可以识别以下五个模式匹配操作符
+
+```regex
+?(pattern-list) - 所给模式匹配0次或1次；
+
+ *(pattern-list) - 所给模式匹配0次以上包括0次；
+
+ +(pattern-list) - 所给模式匹配1次以上包括1次；
+
+ @(pattern-list) - 所给模式仅仅匹配1次；
+
+ !(pattern-list) - 不匹配括号内的所给模式。
+```
+
+#### 反选删除文件
+
+```sh
+shopt -s extglob
+rm -rf !(file1)
+rm -rf !(file1|file2)
+```
+
+#### 结合 grep 和 xargs 删除
+
+```sh
+ls | grep -v file1 | xargs rm
+```
+
+#### 使用 fine 命令删除
+
+```sh
+find ./ -name '[^k][^e][^e][^p]*' -exec rm -rf {} \; 此命令效率高，因为 -exec 会启动
+多个进程处理，而 xargs 会启动一个 rm 进程来处理 
+find ./ -name '[^k][^e][^e][^p]*' | xargs rm -rf
+```
+
