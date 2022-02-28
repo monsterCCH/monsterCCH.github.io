@@ -13,12 +13,15 @@ keywords: gdb,debug
  * @array 数组变量
  * @length 数组长度
  */
-
-`p *array@length`
+p *array@length
 ```
 
-## mulu
+## 打印完整字符串
+
 ```
-test
+显示默认打印长度
+show print elements
+设置不限制长度
+set print element 0
 ```
 
