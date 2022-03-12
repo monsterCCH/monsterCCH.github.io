@@ -10,6 +10,12 @@ keywords: Linux
 
 ## 实用命令
 
+### 设置 root 密码
+
+```sh
+sudo passwd root
+```
+
 ### chown
 
 更改文件所有者和组。

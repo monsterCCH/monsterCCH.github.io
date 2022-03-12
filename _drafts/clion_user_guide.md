@@ -7,34 +7,35 @@ keywords: CLION, IDE, GIT
 ---
 #工具获取
 
-CLION 官方下载地址：<https://www.jetbrains.com/clion/download>
+CLION 官方下载地址：[https://www.jetbrains.com/clion/download](https://www.jetbrains.com/clion/download)
 
 软件适配支持 windows、linux、macos，首次安装可免费试用30天，建议支持正版。
 
 CLION 作为一款 IDE ,本身支持集成的功能已经很丰富了，但同时也提供了丰富的插件扩展，可满足不同开发用户的各种需求。
 
-网站下载地址：<https://plugins.jetbrains.com/clion> 
+网站下载地址：[https://plugins.jetbrains.com/clion](https://plugins.jetbrains.com/clion)
 
 也可以在 File->Setting->Plugins->MarketPlace 中直接下载安装插件
 
 以下列举一些本人使用的插件
+
 * [One Dark theme](https://plugins.jetbrains.com/plugin/11938-one-dark-theme)
-代码颜色主题插件，可根据个人喜好自行安装
+  代码颜色主题插件，可根据个人喜好自行安装
 * [Chinese Language Pack / 中文语言包](https://plugins.jetbrains.com/plugin/13710-chinese-simplified-language-pack----)
-IDE 中文界面翻译插件，有需要可以安装，但中文翻译可能未完全覆盖，翻译也略显生硬，建议使用英文原版
+  IDE 中文界面翻译插件，有需要可以安装，但中文翻译可能未完全覆盖，翻译也略显生硬，建议使用英文原版
 * [IdeaVim](https://plugins.jetbrains.com/plugin/164-ideavim)
-支持 vim 编辑操作，习惯 vim 码代码的可以安装
+  支持 vim 编辑操作，习惯 vim 码代码的可以安装
 * [Json Parser](https://plugins.jetbrains.com/plugin/10650-json-parser)
-Json 序列化工具，方便查看Json数据
+  Json 序列化工具，方便查看Json数据
 * [IDE Eval Reset]()
-神器插件，不提供下载
+  神器插件，不提供下载
 
 之前很多功能是以插件形式提供的，在新版 CLION 中都默认集成了，如数据库连接功能、markdown支持、shell脚本支持等。CLION 还集成了多个单元测试框架
 ，如boost.test、ctest、gtest等。所以使用2021版本的 CLION 如非特殊需要都可直接上手使用，如需特别的功能支持也可以去官方的插件市场寻找。
 
-
 #环境配置
-***
+
+---
 
 ##IDE 内存大小设置
 
@@ -74,37 +75,45 @@ Json 序列化工具，方便查看Json数据
 
 ![](/images/posts/dev_tools/clion_vmmem.jpg)
 
-***
+---
+
 如右下角没有展示，可右键底部标签栏选择想要展示的功能
 
 ![](/images/posts/dev_tools/clion_display_item_down.jpg)
 
 ##IDE 参数设置
-***
+
+---
+
 外观主题设置可根据喜好自行设置，界面UI设置本人设置如下：
 
 ![](/images/posts/dev_tools/clion_setting_appearance.jpg)
 
-***
+---
+
 项目文件范围设置，可自定义文件范围，方便项目搜索时自定义搜索范围
 
 ![](/images/posts/dev_tools/clion_setting-scope.jpg)
 
-***
-File | Settings | Appearance & Behavior | Quick Lists 自定义操作列表，可以添加常用的操作到列表中并在Keymap中添加快捷键 
+---
 
-***
+File | Settings | Appearance & Behavior | Quick Lists 自定义操作列表，可以添加常用的操作到列表中并在Keymap中添加快捷键
+
+---
+
 快捷键设置，如果之前熟悉别的 IDE 默认快捷键，可以选择相应的默认配置，本人使用的是 Visual Studio 主题，也可根据自己需求自定义快捷键
 
 ![](/images/posts/dev_tools/clion_setting_keymap.jpg)
 
-***
+---
+
 代码风格设置，可设置文件换行描述符，unix 下程序建议使用 ‘/n’ 结尾，防止文件出现 '^M' 字符，为防止一行过长，增强可阅读性，也可设置自动换行。
-如果有代码风格统一的需求，可以启用 ClangFormat, IDE 会读取 .clang-format 配置的代码格式 
+如果有代码风格统一的需求，可以启用 ClangFormat, IDE 会读取 .clang-format 配置的代码格式
 
 ![](/images/posts/dev_tools/clion_setting_codeStyle.jpg)
 
-***
+---
+
 代码检查设置，IDE 集成的代码检查工具，可检查代码的语法错误，提示问题并给出改进建议，提高编码时的准确性，默认配置即可，对于一些可忽略的问题，
 可在此修改响应语言的检查项及提示方式。
 
@@ -114,34 +123,40 @@ File | Settings | Appearance & Behavior | Quick Lists 自定义操作列表，�
 
 ![](/images/posts/dev_tools/clion_setting_code_check.jpg)
 
-***
+---
+
 File | Settings | Editor | File Encodings 文件编码设置，根据不同的项目设置统一的文件编码
 
-***
+---
+
 实时模板代码生成，提高编码效率，输出关键字如 for 后，敲击 tab 键后会生成一个 for 循环语句模板，只需输出变量即可，支持自定义代码模板。
 
 ![](/images/posts/dev_tools/clion_setting_live_temp.jpg)
 
-***
+---
+
 指定文件类型，有些文件类型没有在 CLION 的映射文件类型中，如以 .conf 结尾的文件在 CLION 中可能无法打开，在相应的文件类型映射中添加匹配项即可
 
 ![](/images/posts/dev_tools/clion_setting_file_type.jpg)
 
 ##IDE 开发环境设置
-***
+
+---
 
 为了在 IDE 上直接编码编译调试，还需要设置编译工具链，CLION 提供了多种编译链工具，在这选择 Remote Host 方式, Remote Host 使用 SSH 方式连接
 ，配置好相应的 SSH 连接参数及编译工具地址即可
 
 ![](/images/posts/dev_tools/clion_setting_toolchains.jpg)
 
-***
+---
+
 CMAKE 编译设置，可以设置 CMAKE 项目编译类型，选择已经设置好的编译工具链，编译线程数可根据运行环境自行设置，建议取消CMakeLists变动重新加载，
 项目较大时重新加载一次比较耗时。
 
 ![](/images/posts/dev_tools/clion_setting_cmake.jpg)
 
-***
+---
+
 设置远端开发环境，默认使用 sftp 协议连接，可设置到远端的文件目录的映射
 
 ![](/images/posts/dev_tools/clion_setting_develop.jpg)
@@ -152,13 +167,15 @@ File | Settings | Build, Execution, Deployment | Deployment | Options 配置文�
 
 勾选自动上传默认服务器及本地删除文件使删除远端文件，可以防止文件重名时远端环境产生多余文件。
 
-***
-File | Settings | Build, Execution, Deployment | Dynamic Analysis Tools 
+---
+
+File | Settings | Build, Execution, Deployment | Dynamic Analysis Tools
 
 CLION 内部集成了Valgrind、Sanitizers、Perf 动态分析工具以提供代码分析
 
 #使用技巧
-***
+
+---
 
 * **TODO**
 
@@ -187,7 +204,7 @@ CTRL+SHIFT+E 查看最近定位位置
 
 * **查看修改历史**
 
-File | Local History | show history 可以查看 IDE 的修改历史，如在 IDE 中不小心删除文件，可以在历史记录中还原修复 
+File | Local History | show history 可以查看 IDE 的修改历史，如在 IDE 中不小心删除文件，可以在历史记录中还原修复
 
 * **编辑操作**
 
@@ -213,7 +230,7 @@ CTRL+D 复制行
 
 CTRL+L 删除行
 
-Tab 增加缩进 
+Tab 增加缩进
 
 Shift+Tab 减小缩进 建议修改缩进字符为4个空格
 
@@ -229,7 +246,7 @@ Shift+Tab 减小缩进 建议修改缩进字符为4个空格
 
 CTRL+G 快速定位行号
 
-CTRL+SHIFT+[ 快速切换不同项目 
+CTRL+SHIFT+[ 快速切换不同项目
 
 CTRL+SHIFT+BACKSPACE 快速定位到上次修改点
 
@@ -238,7 +255,7 @@ ALT+O 快速切换源码头文件
 ALT+上下方向键 快速切换上下函数
 
 ALT+F1 常用操作为 Project View 快速定位当前文件在项目文件中的位置
-    
+
 F12 跳转函数定义
 
 ALT+F12 以弹窗形式展示函数定义，不跳转文件
@@ -254,7 +271,6 @@ ATL+\ 展示当前文件所有函数 也可在侧边栏 Structure 中查看
 * **代码格式化**
 
 选中内容后 CTRL+ARL+ENTER
-
 
 #CLION 版本控制 GIT 使用
 
@@ -272,16 +288,16 @@ Windows 环境下安装GIT windows版，设置好相应的 GIT 配置
 
 点击 git 功能，选中相应的分支右键即可基于选中的分支创建自己的开发分支，在此分支上的所有修改必须提交后推送到 GIT 远程分支，再发起 merge request，经过管理员同意后才能合并到相应分支
 
-![](/images/posts/dev_tools/clion_git_branch.jpg) 
+![](/images/posts/dev_tools/clion_git_branch.jpg)
 
-* **查看历史修改记录** 
+* **查看历史修改记录**
 
 双击指定分支后，会显示当前分支的历史提交记录，提交记录窗口提供信息检索过滤，可查找提交信息关键字，过滤提交用户、时间，再选中相应的历史记录，会在最右侧展示该次提交修改的文件内容，双击文件即可
 查看修改内容对比
 
-![](/images/posts/dev_tools/clion_git_history.jpg) 
+![](/images/posts/dev_tools/clion_git_history.jpg)
 
-***
+---
 
 ![](/images/posts/dev_tools/clion_compare_info.jpg)
 
@@ -298,11 +314,11 @@ Windows 环境下安装GIT windows版，设置好相应的 GIT 配置
 方便文件提交分类管理。此处有一个比较常用的选项 Amend commit，勾选此项的场景主要在针对一个功能点改动时，一次修改未能完全修复，
 需要多次提交的情况下，每次提交会重用上次的提交记录，这样历史提交记录中只会有一次，方便查看改动内容。
 
-![](/images/posts/dev_tools/clion_git_commit.jpg) 
+![](/images/posts/dev_tools/clion_git_commit.jpg)
 
 * **修改 commit**
 
-如果提交后想要修改提交信息，右键提交记录，选择 Edit Commit Message 即可修改提交信息 
+如果提交后想要修改提交信息，右键提交记录，选择 Edit Commit Message 即可修改提交信息
 
 如果提交后发现提交错误，但又不想保留修改内容，选择Drop commit, 慎用，本地修改内容会消失
 
@@ -313,11 +329,11 @@ Windows 环境下安装GIT windows版，设置好相应的 GIT 配置
 如果有多人在同一个基础分支上开发，他人的提交被更新到基础分支，为了提早发现改动内容有冲突，使用 GIT->Update Project 更新本地分支，
 更新方式有两种，merge 和 rebase, 实现效果是一样的，但建议使用 rebase。两者区别如下：
 
-    git merge优点是分支代码合并后不破坏原分支的代码提交记录，缺点就是会产生额外的提交记录并进行两条分支的合并，
+git merge优点是分支代码合并后不破坏原分支的代码提交记录，缺点就是会产生额外的提交记录并进行两条分支的合并，
 
-    git rebase 优点是无须新增提交记录到目标分支，rebase后可以将对象分支的提交历史续上目标分支上，形成线性提交历史记录，进行review的时候更加直观
+git rebase 优点是无须新增提交记录到目标分支，rebase后可以将对象分支的提交历史续上目标分支上，形成线性提交历史记录，进行review的时候更加直观
 
-* **同步不同版本修改** 
+* **同步不同版本修改**
 
 有时需要同步不同版本之间修改，在 git branch 中选择想要同步的分支修改记录，右键选择Cherry-pick, 即可将别的版本的修改内容同步到当前开发分支，
 此过程可能会产生代码冲突，解决代码冲突即可。
