@@ -84,27 +84,27 @@ APT 全称为“Advanced Package Tool”即高级软件包工具,和命令 apt �
 虽然 **apt** 与 **apt-get** 有一些类似的命令选项，但它并不能完全向下兼容 **apt-get** 命令。也就是说，可以用 **apt** 替换部分 **apt-get** 系列命令，但不是全部。
 
 
-| apt 命令                           | 取代的命令                         | 命令的功能                     |
-| ------------------------------------ | ------------------------------------ | -------------------------------- |
-| apt install                        | apt-get install                    | 安装软件包                     |
-| apt remove                         | apt-get remove                     | 移除软件包                     |
-| apt purge                          | apt-get purge                      | 移除软件包及配置文件           |
-| apt update                         | apt-get update                     | 刷新存储库索引                 |
-| apt upgrade                        | apt-get upgrade                    | 升级所有可升级的软件包         |
-| apt autoremove                     | apt-get autoremove                 | 自动删除不需要的包             |
-| apt download                       | apt—get download                  | 下载对应的软件包               |
+| apt 命令                             | 取代的命令                              | 命令的功能           |
+|------------------------------------|------------------------------------|-----------------|
+| apt install                        | apt-get install                    | 安装软件包           |
+| apt remove                         | apt-get remove                     | 移除软件包           |
+| apt purge                          | apt-get purge                      | 移除软件包及配置文件      |
+| apt update                         | apt-get update                     | 刷新存储库索引         |
+| apt upgrade                        | apt-get upgrade                    | 升级所有可升级的软件包     |
+| apt autoremove                     | apt-get autoremove                 | 自动删除不需要的包       |
+| apt download                       | apt—get download                   | 下载对应的软件包        |
 | apt full-upgrade                   | apt-get dist-upgrade               | 在升级软件包时自动处理依赖关系 |
-| apt install --reinstall            | apt-get install --reinstall        | 重新安装软件                   |
-| apt --install-suggests install     | apt-get --install-suggests install | 同时安装建议的安装包           |
-| apt-get --install-suggests install | apt-get --install-suggests install | 不安装建议的安装包             |
-| apt search                         | apt-cache search                   | 搜索应用程序                   |
-| apt show                           | apt-cache show                     | 显示装细节                     |
+| apt install --reinstall            | apt-get install --reinstall        | 重新安装软件          |
+| apt --install-suggests install     | apt-get --install-suggests install | 同时安装建议的安装包      |
+| apt-get --install-suggests install | apt-get --install-suggests install | 不安装建议的安装包       |
+| apt search                         | apt-cache search                   | 搜索应用程序          |
+| apt show                           | apt-cache show                     | 显示装细节           |
 
 
-| 新的apt命令      | 命令的功能                           |
-| ------------------ | -------------------------------------- |
+| 新的apt命令          | 命令的功能              |
+|------------------|--------------------|
 | apt list         | 列出包含条件的包（已安装，可升级等） |
-| apt edit-sources | 编辑源列表                           |
+| apt edit-sources | 编辑源列表              |
 
 # 软件工具安装
 
@@ -112,7 +112,7 @@ APT 全称为“Advanced Package Tool”即高级软件包工具,和命令 apt �
 
 **一键安装**
 
-`apt install build-essential cmake gdb`
+`apt install build-essential cmake gdb libboost-all-dev libsystemd-dev libssl-dev pkg-config tcl tcl-tls net-tools`
 
 ## Linux 系统监控工具选型
 
