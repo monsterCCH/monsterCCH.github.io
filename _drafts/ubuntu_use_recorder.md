@@ -5,6 +5,7 @@ categories: ubuntu, linux
 description: 记录使用 ubuntu 进行开发的问题 
 keywords: ubuntu
 ---
+
 # 工具使用介绍
 
 ## systemctl
@@ -16,6 +17,32 @@ Systemd 是一个系统管理守护进程、工具和库的集合，用于取代
 [systemctl 命令完全指南](https://linux.cn/article-5926-1.html)
 
 [systemctl命令介绍和使用](https://segmentfault.com/a/1190000023029058)
+
+### 配置自定义服务
+
+```sh
+cd /usr/lib/systemd/system/ 目录中创建自定义的 service 文件如下
+
+redis-server.service 
+
+[Unit]
+Description=Advanced key-value store
+After=network.target
+Documentation=http://redis.io/documentation, man:redis-server(1)
+
+[Service]
+Type=forking
+ExecStart=/opt/dev_src/redis-6.2.6/src/redis-server /etc/redis/redis.conf
+ExecStop=/opt/dev_src/redis-6.2.6/src/redis-cli shutdown
+TimeoutStopSec=0
+Restart=always
+#User=redis
+#Group=redis
+
+[Install]
+WantedBy=multi-user.target
+#Alias=redis.service
+```
 
 #### 常用命令
 
@@ -83,29 +110,85 @@ APT 全称为“Advanced Package Tool”即高级软件包工具,和命令 apt �
 
 虽然 **apt** 与 **apt-get** 有一些类似的命令选项，但它并不能完全向下兼容 **apt-get** 命令。也就是说，可以用 **apt** 替换部分 **apt-get** 系列命令，但不是全部。
 
-
-| apt 命令                             | 取代的命令                              | 命令的功能           |
-|------------------------------------|------------------------------------|-----------------|
-| apt install                        | apt-get install                    | 安装软件包           |
-| apt remove                         | apt-get remove                     | 移除软件包           |
-| apt purge                          | apt-get purge                      | 移除软件包及配置文件      |
-| apt update                         | apt-get update                     | 刷新存储库索引         |
-| apt upgrade                        | apt-get upgrade                    | 升级所有可升级的软件包     |
-| apt autoremove                     | apt-get autoremove                 | 自动删除不需要的包       |
-| apt download                       | apt—get download                   | 下载对应的软件包        |
+| apt 命令                           | 取代的命令                         | 命令的功能                     |
+| ------------------------------------ | ------------------------------------ | -------------------------------- |
+| apt install                        | apt-get install                    | 安装软件包                     |
+| apt remove                         | apt-get remove                     | 移除软件包                     |
+| apt purge                          | apt-get purge                      | 移除软件包及配置文件           |
+| apt update                         | apt-get update                     | 刷新存储库索引                 |
+| apt upgrade                        | apt-get upgrade                    | 升级所有可升级的软件包         |
+| apt autoremove                     | apt-get autoremove                 | 自动删除不需要的包             |
+| apt download                       | apt—get download                  | 下载对应的软件包               |
 | apt full-upgrade                   | apt-get dist-upgrade               | 在升级软件包时自动处理依赖关系 |
-| apt install --reinstall            | apt-get install --reinstall        | 重新安装软件          |
-| apt --install-suggests install     | apt-get --install-suggests install | 同时安装建议的安装包      |
-| apt-get --install-suggests install | apt-get --install-suggests install | 不安装建议的安装包       |
-| apt search                         | apt-cache search                   | 搜索应用程序          |
-| apt show                           | apt-cache show                     | 显示装细节           |
+| apt install --reinstall            | apt-get install --reinstall        | 重新安装软件                   |
+| apt --install-suggests install     | apt-get --install-suggests install | 同时安装建议的安装包           |
+| apt-get --install-suggests install | apt-get --install-suggests install | 不安装建议的安装包             |
+| apt search                         | apt-cache search                   | 搜索应用程序                   |
+| apt show                           | apt-cache show                     | 显示装细节                     |
 
-
-| 新的apt命令          | 命令的功能              |
-|------------------|--------------------|
+| 新的apt命令      | 命令的功能                           |
+| ------------------ | -------------------------------------- |
 | apt list         | 列出包含条件的包（已安装，可升级等） |
-| apt edit-sources | 编辑源列表              |
+| apt edit-sources | 编辑源列表                           |
 
+## nala
+
+nala 是 libapt-pkg 的前端，通过删除一些冗余消息、改进包格式以及使用颜色来说明在安装、删除或升级过程中包发生的情况来简化 apt 的使用.
+
+主要优点：
+
+* 并行下载
+* 自动选择最快的镜像
+* 软件包的管理历史
+
+### 安装方法
+
+```sh
+git clone https://gitlab.com/volian/nala
+cd nala
+python3 ./setup.py build
+sudo python3 ./setup.py install
+```
+
+或
+
+```sh
+echo "deb [arch=amd64,arm64,armhf] http://deb.volian.org/volian/ scar main" | sudo tee /etc/apt/sources.list.d/volian-archive-scar-unstable.list
+wget -qO - https://deb.volian.org/volian/scar.key | sudo tee /etc/apt/trusted.gpg.d/volian-archive-scar-unstable.gpg > /dev/null
+sudo apt update && sudo apt install nala
+```
+
+### 用法
+
+```sh
+usage: nala [--options] <command>
+
+commands:
+
+install            install packages
+remove             remove packages
+purge              purge packages
+update             update package list and upgrade the system
+upgrade            alias for update
+fetch              fetches fast mirrors to speed up downloads
+show               show package details
+history            show transaction history
+clean              clears out the local repository of retrieved package files
+
+optional arguments:
+-h, --help           show this help message and exit
+-y, --assume-yes     assume 'yes' to all prompts and run non-interactively
+-d, --download-only  package files are only retrieved, not unpacked or installed
+-v, --verbose        logs extra information for debugging
+--no-update          skips updating the package list
+--no-autoremove      stops nala from autoremoving packages
+--remove-essential   allows the removal of essential packages
+--raw-dpkg           skips all formatting and you get raw dpkg output
+--update             updates the package list
+--debug              logs extra information for debugging
+--version            show program's version number and exit
+--license            reads the licenses of software compiled in and then reads the GPLv3
+```
 # 软件工具安装
 
 ## 编译开发工具安装
@@ -220,3 +303,8 @@ hostname
 vim /etc/hostname
 vim /etc/hosts
 ```
+
+# 磁盘管理
+
+![linux_disk_managerdrawio.png](./assets/linux_disk_manager.drawio.png)
+
