@@ -5,7 +5,6 @@ categories: Linux
 description: 类 Unix 系统下的一些常用命令和用法。
 keywords: Linux
 ---
-
 类 Unix 系统下的一些常用命令和用法。
 
 ## 实用命令
@@ -15,15 +14,15 @@ keywords: Linux
 粗略统计程序执行时的耗时，通常输出三个值 real time、user time 和 sys time
 
 * real time
-  
+
   * 概念：程序从开始到结束所经历的时间，也就是用户所感受到的时间。包括当前程序CPU的用时和所有延迟程序执行的因素的耗时总和（比如其他程序耗时，等待I/O完成耗时等）
   * 来源：real time是由gettimeofday()中结束时间与开始时间相减得来。
 * user time
-  
+
   * 概念：程序执行过程中在用户空间（user space）中所花费的所有时间，即程序用户模式下的CPU耗时。仅指当前进程。其他进程的时间和当前进程I/O阻塞的时间均不计在内。
   * 来源：user time是由wait()或times()系统调用得来。
 * sys time
-  
+
   * 概念：程序执行过程中内核空间（kernel space）中所花费的时间，即程序在内核调用中的CPU耗时。仅指当前进程。程序的库代码调用仍然是在用户空间下。
   * 来源：sys time是由wait()或times()系统调用得来。
 
@@ -99,9 +98,9 @@ awk [选项参数] -f scriptfile var=value file(s)
   使用program-text作为源代码，可与-f命令混用。
 * -W version or --version
   打印bug报告信息的版本。
-  
+
   示范用例
-  
+
   ```sh
   kill 所有进程名包含 program 的进程
   ps -ef | grep program | grep -v grep | awk -F' ' '{print $2}' |xargs kill -9
@@ -148,6 +147,51 @@ lsof -c Vim
 注意程序名区分大小写。
 
 ---
+
+### nohub
+
+nohup (no hang up)，用于在系统后台不挂断地运行命令，退出终端不会影响程序的运行。
+
+#### eg:
+
+```sh
+# 在后台执行 root 目录下的 runoob.sh 脚本，并重定向输入到 runoob.log 文件
+nohup /root/runoob.sh > runoob.log 2>&1 &
+
+2>&1 解释：
+
+将标准错误 2 重定向到标准输出 &1 ，标准输出 &1 再被重定向输入到 runoob.log 文件中。
+
+0 – stdin (standard input，标准输入)
+1 – stdout (standard output，标准输出)
+2 – stderr (standard error，标准错误输出)
+```
+
+### watch
+
+命令格式: 
+watch[参数][命令]
+
+命令功能： 
+将命令的输出结果输出到标准输出设备，多用于周期性执行命令/定时执行命令
+
+命令参数：
+
+-n或--interval  watch缺省每2秒运行一下程序，可以用-n或-interval来指定间隔的时间。
+
+-d或--differences  用-d或--differences 选项watch 会高亮显示变化的区域。 而-d=cumulative选项会把变动过的地方(不管最近的那次有没有变动)都高亮显示出来。
+
+-t 或-no-title  会关闭watch命令在顶部的时间间隔,命令，当前时间的输出。
+
+样例：
+```sh
+#每 10s 输出一次系统负载
+watch -n 10 -d 'cat /proc/loadavg'
+```
+
+```sh
+
+```
 
 ## 使用场景
 
@@ -196,4 +240,3 @@ find ./ -name '[^k][^e][^e][^p]*' -exec rm -rf {} \; 此命令效率高，因为
 多个进程处理，而 xargs 会启动一个 rm 进程来处理 
 find ./ -name '[^k][^e][^e][^p]*' | xargs rm -rf
 ```
-

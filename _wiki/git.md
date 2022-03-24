@@ -5,8 +5,8 @@ categories: Git
 description: Git 常用操作记录。
 keywords: Git, 版本控制
 ---
-## 常用命令
 
+## 常用命令
 
 | 功能                      | 命令                                  |
 | :-------------------------- | :-------------------------------------- |
@@ -98,9 +98,8 @@ git merge upstream/master
 * 将 TortoiseMerge.exe 所在路径添加到 `path` 环境变量。
 * 运行命令 `git config --global merge.tool tortoisemerge` 将 TortoiseMerge.exe 设置为默认的 merge tool。
 * 在产生 conflict 的目录运行 `git mergetool`，TortoiseMerge.exe 会跳出来供你 resolve conflict。
-
+  
   > 也可以运行 `git mergetool -t vimdiff` 使用 `-t` 参数临时指定一个想要使用的 merge tool。
-  >
 
 ### 不想跟踪的文件已经被提交了，如何不再跟踪而保留本地文件？
 
@@ -193,7 +192,6 @@ git clean
 ```
 
 可选项：
-
 
 | 选项              | 含义                             |
 | ------------------- | ---------------------------------- |
@@ -524,25 +522,25 @@ gitk 很方便，但是在 Mac 系统下默认显示很模糊，影响体验。
 方法一：
 
 1. 重新启动机器，按 command + R 等 Logo 和进度条出现，会进入 Recovery 模式，选择顶部的实用工具——终端，运行以下命令：
-
+   
    ```sh
    csrutil disable
    ```
 2. 重新启动机器。
 3. 编辑 Wish 程序的 plist，启动高分辨率屏支持。
-
+   
    ```
    sudo gvim /System/Library/Frameworks/Tk.framework/Versions/Current/Resources/Wish.app/Contents/Info.plist
    ```
-
+   
    在最后的 </dict> 前面加上以下代码
-
+   
    ```sh
    <key>NSHighResolutionCapable</key>
    <true/>
    ```
 4. 更新 Wish.app。
-
+   
    ```sh
    sudo touch Wish.app
    ```
@@ -676,3 +674,4 @@ $ git remote prune origin
 ```
 
 清除完成。
+

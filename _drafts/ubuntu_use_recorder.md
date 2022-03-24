@@ -507,7 +507,7 @@ vgs
 vgextend [VG_NAME] [device1] [device2] ...
 ```
 
-### 创建扩容逻辑卷
+### 创建、扩容、逻辑卷
 
 相关命令：
 
@@ -626,9 +626,50 @@ resize2fs 1.42.9 (28-Dec-2013)
 Filesystem at /dev/VG_TEST/lv_test is mounted on /test; on-line resizing required
 old_desc_blocks = 1, new_desc_blocks = 1
 The filesystem on /dev/VG_TEST/lv_test is now 390144 blocks long.
+
+xfs文件系统扩容
+xfs_growfs /dev/vg001/lv001 刷新信息，完成扩展。
+df -hT 查看挂载信息以及容量，确认扩展成功
 ```
 
+#### 缩容逻辑卷
 
+相关命令:
+
+```sh
+# lvreduce 减小分区大小到 SIZE
+lvreduce -L [SIZE] [lv_device]
+
+eg:
+ext4 文件系统
+umount /dev/vg001/lv001 卸载设备
+e2fsck -f /dev/vg001/lv001 检查文件系统完整性
+resize2fs /dev/vg001/lv001 35G 刷新信息到需要缩小的空间
+lvreduce -L 35G /dev/vg001/lv001 缩小逻辑卷
+mount -a 重新挂载
+```
+
+xfs 文件系统大小调整：
+
+```sh
+# 备份数据 
+xfsdump -f [/tmp/opt.dump] [/opt]
+
+# 卸载分区
+umount /test
+
+# 减小分区大小
+lvreduce -L 30G /dev/mapper/opt
+
+# 使用 xfs 文件系统格式化分区
+mkfs.xfs -f /opt
+
+# 重新安装分区
+mount /dev/mapper/opt /opt
+
+# 恢复数据
+xfsrestore -f /tmp/opt.dump /opt
+```
 
 #### 设置自动挂载
 
