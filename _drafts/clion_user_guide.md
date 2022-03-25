@@ -167,6 +167,10 @@ File | Settings | Build, Execution, Deployment | Deployment | Options 配置文�
 
 勾选自动上传默认服务器及本地删除文件使删除远端文件，可以防止文件重名时远端环境产生多余文件。
 
+**important**
+
+**去除保留文件时间戳选项，勾选后可能导致远程调试编译时文件修改无法识别，从而无法重新编译，修改不生效。**
+
 ---
 
 File | Settings | Build, Execution, Deployment | Dynamic Analysis Tools

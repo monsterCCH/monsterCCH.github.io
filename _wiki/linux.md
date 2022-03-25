@@ -152,7 +152,6 @@ lsof -c Vim
 
 nohup (no hang up)，用于在系统后台不挂断地运行命令，退出终端不会影响程序的运行。
 
-#### eg:
 
 ```sh
 # 在后台执行 root 目录下的 runoob.sh 脚本，并重定向输入到 runoob.log 文件
