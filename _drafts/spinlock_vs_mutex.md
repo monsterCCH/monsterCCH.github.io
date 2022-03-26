@@ -14,3 +14,6 @@ keywords: spinlock, mutex
 # spinlock 说明
 
 * 自旋锁是一种死等的锁机制，
+
+![spinlock_vs_mutex.png](assets/spinlock_vs_mutex.png)
+
