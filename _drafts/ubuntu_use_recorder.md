@@ -93,6 +93,12 @@ dpkg -l	列出当前已安装的包
 dpkg -c package.deb	列出 deb 包的内容
 dpkg --configure package	配置包
 ```
+实例
+```shell
+查看包安装路径
+dpkg -l | grep [pakeage_name]
+dplkg -L [pakeage_name]
+```
 
 ## APT
 
