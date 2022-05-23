@@ -104,6 +104,24 @@ desc tb_name;
 show create table tb_name;
 -- 查看表的索引
 show index from table_name;
+-- 显示数据库列表
+show databases;
+```
+
+### 修改密码 mysql 8.0
+
+```sql
+show databases;
+use mysql;
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '你的密码';
+```
+
+### 修改用户远程登录权限
+
+```sql
+update user set host='%' where user = 'root';
+select host from user where user = 'root';
+flush privileges;
 ```
 
 ### 修改
