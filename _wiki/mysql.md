@@ -202,6 +202,22 @@ table_name,
     50
 ```
 
+查看数据库的所有表数据大小排序
+
+```shell
+SELECT
+	TABLE_NAME,
+	DATA_LENGTH + INDEX_LENGTH,
+	TABLE_ROWS,
+	concat(round((DATA_LENGTH + INDEX_LENGTH) / 1024 / 1024,2),'MB') AS DATA
+FROM
+	information_schema. TABLES
+WHERE
+	TABLE_SCHEMA = 'ABC' -- 数据库名
+ORDER BY
+	DATA + 0 DESC;
+```
+
 查看数据库的文件大小：
 
 ```sql
