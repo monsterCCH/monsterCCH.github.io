@@ -105,7 +105,7 @@ show create table tb_name;
 -- 查看表的索引
 show index from table_name;
 -- 显示数据库列表
-show databases;
+show databases; 
 ```
 
 ### 修改密码 mysql 8.0
