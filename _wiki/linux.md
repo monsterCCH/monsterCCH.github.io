@@ -5,7 +5,6 @@ categories: Linux
 description: 类 Unix 系统下的一些常用命令和用法。
 keywords: Linux
 ---
-
 类 Unix 系统下的一些常用命令和用法。
 
 ## 实用命令
@@ -54,21 +53,20 @@ dd if=/root/1Gb.file bs=64k | dd of=/dev/null
 
 ```
 
-
 ### time
 
 粗略统计程序执行时的耗时，通常输出三个值 real time、user time 和 sys time
 
 * real time
-  
+
   * 概念：程序从开始到结束所经历的时间，也就是用户所感受到的时间。包括当前程序CPU的用时和所有延迟程序执行的因素的耗时总和（比如其他程序耗时，等待I/O完成耗时等）
   * 来源：real time是由gettimeofday()中结束时间与开始时间相减得来。
 * user time
-  
+
   * 概念：程序执行过程中在用户空间（user space）中所花费的所有时间，即程序用户模式下的CPU耗时。仅指当前进程。其他进程的时间和当前进程I/O阻塞的时间均不计在内。
   * 来源：user time是由wait()或times()系统调用得来。
 * sys time
-  
+
   * 概念：程序执行过程中内核空间（kernel space）中所花费的时间，即程序在内核调用中的CPU耗时。仅指当前进程。程序的库代码调用仍然是在用户空间下。
   * 来源：sys time是由wait()或times()系统调用得来。
 
@@ -144,9 +142,9 @@ awk [选项参数] -f scriptfile var=value file(s)
   使用program-text作为源代码，可与-f命令混用。
 * -W version or --version
   打印bug报告信息的版本。
-  
+
   示范用例
-  
+
   ```sh
   kill 所有进程名包含 program 的进程
   ps -ef | grep program | grep -v grep | awk -F' ' '{print $2}' |xargs kill -9
@@ -412,4 +410,3 @@ dd if=/dev/null of=big.log
 
 * 使用truncate命令清空
   `truncate -s 0 big.log`
-
