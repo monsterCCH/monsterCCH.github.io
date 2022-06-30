@@ -259,6 +259,13 @@ sudo apt update
 sudo apt install bashtop
 ```
 
+## boost
+编译
+```shell
+./bootstrap.sh --with-libraries=all --with-toolset=gcc
+./b2 --prefix=<instal_path> --build-type=<minimal|complete>
+```
+
 ## 其它工具
 
 ### shfmt
