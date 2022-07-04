@@ -94,7 +94,7 @@ MySQL 5.7 在 Windows 下安装后无法直接运行，需要步骤：
 3. net start mysql
 4. Mysql -u root
 
-## 常用 SQL
+## 常用指令
 
 ### 查看
 
@@ -267,5 +267,27 @@ SELECT * FROM Orders LIMIT 15, 10; -- 等价于上面
 
 ```sql
 update t_wxuser a set a.updatetime=a.subscribe_time where a.updatetime IS NULL
+```
+
+### 查询结果去重
+
+* 对一个字段去重
+
+```sql
+select distinct key from table;
+```
+
+### 模糊查询
+
+`SELECT 字段 FROM 表 WHERE 某字段 Like 条件`
+
+```sql
+LIKE'Mc%' 将搜索以字母 Mc 开头的所有字符串（如 McBadden）。
+LIKE'%inger' 将搜索以字母 inger 结尾的所有字符串（如 Ringer、Stringer）。
+LIKE'%en%' 将搜索在任何位置包含字母 en 的所有字符串（如 Bennet、Green、McBadden）。
+LIKE'_heryl' 将搜索以字母 heryl 结尾的所有六个字母的名称（如 Cheryl、Sheryl）。
+LIKE'[CK]ars[eo]n' 将搜索下列字符串：Carsen、Karsen、Carson 和 Karson（如 Carson）。
+LIKE'[M-Z]inger' 将搜索以字符串 inger 结尾、以从 M 到 Z 的任何单个字母开头的所有名称（如 Ringer）。
+LIKE'M[^c]%' 将搜索以字母 M 开头，并且第二个字母不是 c 的所有名称（如MacFeather）
 ```
 
