@@ -9,6 +9,76 @@ keywords: Linux
 
 ## 实用命令
 
+### tcpdump
+
+tcpdump 是一个强大的网络监控工具，它允许用户有效地过滤网络上的数据包和流量。您可以获得有关 TCP/IP 和网络上传输的数据包的详细信息
+
+列出可用的网络接口
+
+`tcpdump -D`
+
+```text
+❯ tcpdump -D
+1.ens33 [Up, Running]
+2.lo [Up, Running, Loopback]
+3.any (Pseudo-device that captures on all interfaces) [Up, Running]
+4.docker0 [Up]
+5.bluetooth-monitor (Bluetooth Linux Monitor) [none]
+6.nflog (Linux netfilter log (NFLOG) interface) [none]
+7.nfqueue (Linux netfilter queue (NFQUEUE) interface) [none]
+8.bluetooth0 (Bluetooth adapter number 0) [none]
+```
+
+常用参数说明
+
+```text
+-i [interface] 指定抓包的网络接口
+-c [int] 指定抓包数量
+host/port 过滤指定条件报文 eg: src 112.123.13.145 and port 80
+-n 不展示主机域名
+-Q <in|out|inout> 指定抓取报文方向
+—A ASCII 打印报文内容
+—x 十六进制打印
+-X 十六进制 ASCII 对照打印
+-w [filename] 指定抓包保存文件
+-C [Mb] 指定存储文件大小，达到指定大小则另存文件
+```
+
+输出格式
+
+`05:46:44.708237 IP 192.168.0.111.58472 > 192.168.0.151.22: Flags [P.], seq 2689:2737, ack 232288, win 4097, length 48`
+
+`05:46:44.708293 IP 192.168.0.151.22 > 192.168.0.111.58472: Flags [P.], seq 232288:232368, ack 2737, win 501, length 80`
+`
+
+```text
+05:46:44.708293：接收数据包的时间戳
+
+IP：网络协议名称
+
+192.168.0.151.22 > 192.168.0.111.58472: IP 地址和端口详细信息
+
+Flags [P.]：TCP 标志
+
+seq 232288:232368： 数据包中数据的序号
+
+ack 2737：确认数据
+
+win 501： 窗口大小
+
+length 80：数据包长度
+
+```
+
+| 标志名称 | 值   | 描述    |
+|------|-----|-------|
+| SYN  | S   | 连接开始  |
+| FIN  | F   | 连接完成  |
+| PUSH | P   | 数据被推送 |
+| RST  | R   | 连接已重置 |
+| ACK  | .   | 确认    |
+
+
 ### screen
 
 screen为多重视窗管理程序，用于在一个终端中创建多个会话窗口
