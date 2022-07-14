@@ -480,3 +480,7 @@ dd if=/dev/null of=big.log
 
 * 使用truncate命令清空
   `truncate -s 0 big.log`
+
+### 文件系统修复
+
+`fsck -A -V -a`
