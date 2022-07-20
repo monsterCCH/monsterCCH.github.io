@@ -223,6 +223,16 @@ optional arguments:
 --license            reads the licenses of software compiled in and then reads the GPLv3
 ```
 
+# rpm
+
+ 查找软件包
+
+`rpm -qa | grep redis`
+
+ 查看软件包安装路径
+
+`rpm -ql [name]`
+
 # 软件工具安装
 
 ## 编译开发工具安装
