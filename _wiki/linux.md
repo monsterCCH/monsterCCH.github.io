@@ -484,3 +484,9 @@ dd if=/dev/null of=big.log
 ### 文件系统修复
 
 `fsck -A -V -a`
+
+### rpm 复制系统安装文件
+
+```shell
+rpm -ql libunwind-devel-1.2.2 | awk '{if (match($0, "lib64")) {printf("%s\n", $0)}} | xargs -I {} cp -rL {} ./lib'
+```
