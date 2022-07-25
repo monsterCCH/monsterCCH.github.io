@@ -345,7 +345,7 @@ extglob 打开后 shell 可以识别五个模式匹配操作符，使文件匹�
 开启后可以识别以下五个模式匹配操作符
 
 ```regex
-?(pattern-list) - 所给模式匹配0次或1次；
+ ?(pattern-list) - 所给模式匹配0次或1次；
 
  *(pattern-list) - 所给模式匹配0次以上包括0次；
 
