@@ -490,3 +490,16 @@ dd if=/dev/null of=big.log
 ```shell
 rpm -ql libunwind-devel-1.2.2 | awk '{if (match($0, "lib64")) {printf("%s\n", $0)}} | xargs -I {} cp -rL {} ./lib'
 ```
+
+### cp 复制/移动多个文件操作
+
+```shell
+# 复制当前目录的多个文件
+cp a b c target
+
+# 复制目录下的多个文件
+cp dir/{a,b,c} target
+
+# 复制名称相似的多个文件
+cp file-[1-4] target
+```
