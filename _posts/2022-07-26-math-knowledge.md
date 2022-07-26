@@ -8,7 +8,7 @@ keywords: match, concept
 
 ## 指数
 
-$X^A$$X^B$ = $X^{A+B}$
+$$X^{A} X^{B}=X^{A+B}$$
 
 
 
