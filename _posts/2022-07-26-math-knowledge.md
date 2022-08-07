@@ -53,6 +53,8 @@ $$
 \log A B=\log A+\log B
 $$
 
+![IMG_6B1D22D76EE91.jpg](assets/math_knowledge/IMG_6B1D22D76EE9-1.jpg?t=1659868078371)
+
 $$
 \begin{array}{l}
 \log A / B=\log A-\log B \\
@@ -60,16 +62,19 @@ $$
 \log X<X(\text { 对所有的 } X>0 \text { 成立。) } \\
 \log 1=0, \log 2=1, \log 1024=10, \log 1048576=20 \text { 。 }
 \end{array}
-$$
 
+$$
 ## 级数
-
 $$
+
 \sum_{i=0}^{N} 2^{i}=2^{N+1}-1 和 \sum_{i=0}^{N} A^{i}=\frac{A^{N+1}-1}{A-1}
-$$
 
+$$
 在第二个公式中, 如果  0<A<1 , 则
+$$
+
+\sum_{i=0}^{N} A^{i} \leqslant \frac{1}{1-A}
 
 $$
-\sum_{i=0}^{N} A^{i} \leqslant \frac{1}{1-A}
+
 $$
