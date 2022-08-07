@@ -53,9 +53,6 @@ $$
 \log A B=\log A+\log B
 $$
 
-<<<<<<< HEAD
-![IMG_6B1D22D76EE91.jpg](assets/math_knowledge/IMG_6B1D22D76EE9-1.jpg)
-=======
 $$
 \begin{array}{l}
 \log A / B=\log A-\log B \\
@@ -64,7 +61,6 @@ $$
 \log 1=0, \log 2=1, \log 1024=10, \log 1048576=20 \text { 。 }
 \end{array}
 $$
->>>>>>> 343b61f (update)
 
 ## 级数
 
