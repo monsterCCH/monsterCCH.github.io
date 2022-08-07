@@ -53,6 +53,9 @@ $$
 \log A B=\log A+\log B
 $$
 
+![IMG_6B1D22D76EE91.jpg](assets/math_knowledge/IMG_6B1D22D76EE9-1.jpg)
+
+
 ## 级数
 
 $$
