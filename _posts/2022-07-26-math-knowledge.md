@@ -45,6 +45,8 @@ $$
 \log _{A} B=\frac{\log _{C} B}{\log _{C} A} ; C>0
 $$
 
+![IMG_6849157741BC1.jpeg](assets/math_knowledge/IMG_6849157741BC-1.jpeg)
+
 定理2
 
 $$
