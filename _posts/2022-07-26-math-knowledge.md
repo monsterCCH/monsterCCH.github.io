@@ -45,7 +45,7 @@ $$
 \log _{A} B=\frac{\log _{C} B}{\log _{C} A} ; C>0
 $$
 
-![IMG_6849157741BC1.jpeg](assets/math_knowledge/IMG_6849157741BC-1.jpg)
+![IMG_6849157741BC1.jpeg](../images/posts/math_knowledge/IMG_6849157741BC-1.jpg)
 
 定理2
 
@@ -53,7 +53,7 @@ $$
 \log A B=\log A+\log B
 $$
 
-![IMG_6B1D22D76EE91.jpg](assets/math_knowledge/IMG_6B1D22D76EE9-1.jpg)
+![IMG_6B1D22D76EE91.jpg](../images/posts/math_knowledge/IMG_6B1D22D76EE9-1.jpg)
 
 $$
 \begin{array}{l}
