@@ -503,3 +503,10 @@ cp dir/{a,b,c} target
 # 复制名称相似的多个文件
 cp file-[1-4] target
 ```
+
+### locate 查找文件
+
+```shell
+apt install locate
+updatedb
+```
