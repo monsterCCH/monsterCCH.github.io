@@ -349,6 +349,23 @@ network:
 netplan try
 netplan apply
 ```
+### 特殊场景
+
+#### ubuntu 启动卡在 A start job is running for wait for network to be Configured
+
+##### 解决方案
+
+修改配置文件
+
+```shell
+vim /etc/systemd/system/network-online.target.wants/systemd-networkd-wait-online.service
+
+[Service]
+Type=oneshot
+ExecStart=/lib/systemd/systemd-networkd-wait-online
+RemainAfterExit=yes
+TimeoutStartSec=2sec # add this
+```
 
 ## 主机名配置
 
@@ -1064,4 +1081,3 @@ root@ubuntu:~# blkid
 | options     | 文件系统相关联的挂载选项                                             |
 | dump        | 针对ext2/3/4文件系统，是否要备份，防止因异常断电导致的数据丢失 此字段默认填0，不需要dump |
 | pass        | 指定系统启动时通过fsck检查文件系统的顺序，根文件系统检查顺序为1，其他为2。默认为0表示不执行检查      |
-
