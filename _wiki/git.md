@@ -687,4 +687,13 @@ $ git remote prune origin
 
 清除完成。
 
+### 解决 oh-my-zsh git 进入目录卡顿问题
 
+```shell
+# 设置 oh-my-zsh 不读取文件变化信息（在 git 项目目录执行下列命令）
+git config --add oh-my-zsh.hide-dirty 1
+# 设置 oh-my-zsh 不读取任何 git 信息
+git config --add oh-my-zsh.hide-status 1
+# 恢复显示
+git config --remove-section oh-my-zsh
+```

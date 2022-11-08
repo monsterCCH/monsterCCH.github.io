@@ -510,3 +510,10 @@ cp file-[1-4] target
 apt install locate
 updatedb
 ```
+### timedatectl 设置时区
+
+timedatectl命令将会打印系统的时区和所在时区的当前时间。并显示系统时钟服务同步以及NTP服务的状态
+```shell
+timedatectl list-timezones | grep -i shang
+sudo timedatectl set-timezone Asia/Shanghai
+```
