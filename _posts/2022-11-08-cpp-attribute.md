@@ -56,7 +56,7 @@ int f(int i)
 添加 attribute 后
 
 ```c++
-int f(int i)[[expects:i > 0]]
+int f(int i)[[expects:i > 0]] // expects已在C++20中废弃,在C++23中用assume替代
 {
 	// Code
 }
