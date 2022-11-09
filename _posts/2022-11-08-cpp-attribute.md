@@ -171,7 +171,8 @@ int main()
 ### [[carries_dependency]]
 #### 示例
 ```c++
-std::atomic<int *> p;std::atomic<int *> q;
+std::atomic<int *> p;
+std::atomic<int *> q;
 void func1(int *val) { 
     std::cout << *val << std::endl;
 }
@@ -197,6 +198,9 @@ void thread_job() {
 func1并没有带任何属性，而他访问了ptr1，那么编译器为了保证内存访问策略被尊重所以必须在func1调用之间构建一个内存栅栏。如果这个线程被大量的调用，这个额外的内存栅栏将导致性能损失。
 
 在func2中，我们使用了[[carries_dependency]]属性，那么同样的访问ptr1，编译器就知道程序已经处理好了相关的内存访问限制。这个也正如我们再func2中对val访问所做的限制是一样的。那么在func2之前，编译器就无需再插入额外的内存栅栏，提高了效率。
+
+#### 补充参考资料
+[C++：C++11中memory_order_consume的目的](https://blog.csdn.net/netyeaxi/article/details/80718781)
 
 ### [[deprecated]]
 #### 用法
