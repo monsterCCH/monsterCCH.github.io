@@ -6,7 +6,6 @@ description: C/C++ 集成开发环境 CLION 的配置使用说明
 keywords: CLION, IDE, GIT
 ---
 # 工具获取
-
 CLION 官方下载地址：<https://www.jetbrains.com/clion/download>
 
 软件适配支持 windows、linux、macos，首次安装可免费试用30天，建议支持正版。
@@ -34,9 +33,7 @@ Json 序列化工具，方便查看Json数据
 
 
 # 环境配置
-
 ## IDE 内存大小设置
-
 由于 clion 运行在 Java 虚拟机上，所以内存的分配直接影响到使用的流畅度，安装后默认的 Java 运行堆栈内存大小为2048M，
 这对于一些中大型项目以及同时开启多个项目的情况就有点捉襟见肘了，就本人使用体验来说，建议内存分配4G以上，机器资源充足的情况也可多多益善。
 
@@ -81,7 +78,6 @@ Json 序列化工具，方便查看Json数据
 
 
 ## IDE 参数设置
-
 外观主题设置可根据喜好自行设置，界面UI设置本人设置如下：
 
 ![](/images/posts/dev_tools/clion_setting_appearance.jpg)
@@ -138,7 +134,6 @@ File -> Settings -> Editor -> File Encodings 文件编码设置，根据不同�
 
 
 ## IDE 开发环境设置
-
 为了在 IDE 上直接编码编译调试，还需要设置编译工具链，CLION 提供了多种编译链工具，在这选择 Remote Host 方式, Remote Host 使用 SSH 方式连接
 ，配置好相应的 SSH 连接参数及编译工具地址即可
 
@@ -170,7 +165,6 @@ File -> Settings -> Build, Execution, Deployment -> Dynamic Analysis Tools
 CLION 内部集成了Valgrind、Sanitizers、Perf 动态分析工具以提供代码分析
 
 # 使用技巧
-
 * **TODO**
 
 编码中含有待处理事项时，添加注释 *//TODO*，即可在下方工具栏查看待处理事项。
@@ -280,7 +274,6 @@ ATL+\ 展示当前文件所有函数 也可在侧边栏 Structure 中查看
 
 
 # CLION 版本控制 GIT 使用
-
 * **GIT 安装**
 
 Windows 环境下安装GIT windows版，设置好相应的 GIT 配置

@@ -7,11 +7,9 @@ keywords: C, asm
 ---
 
 ## 什么是内联汇编
-
 内联汇编主要用来在 C/C++ 中嵌入汇编语言代码，它方便，快速，对系统编程有着举足轻重的作用。**可以操作C语言变量，比如可以输出值到C语言变量。这个特性使内联汇编成为汇编代码和调用其C程序之间的桥梁。**
 
 ## 语法格式
-
 `__asm__　__volatile__("Instruction List" : Output : Input : Clobber/Modify);`
 
 * \_\_asm_\_
@@ -126,7 +124,6 @@ return (*__p);
 主要是保证程序的执行遵循顺序一致性。呵呵，有的时候你写代码的顺序，不一定是终执行的顺序，这个是处理器有关的。
 
 ## 常用代码示例
-
 字符拷贝
 ```c
 static inline char* strcpy (char* dest, const char* src)

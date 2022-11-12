@@ -7,15 +7,12 @@ keywords: perf
 ---
 
 ## what's perf?
-
 perf 是 linux 下的性能分析工具。
 
 Linux的性能计数器是一个新的基于内核的子系统，它为所有性能分析提供了一个框架。 它涵盖硬件级别(CPU/PMU，性能监控单元)特性和软件特性(软件计数器，跟踪点)。
 
 ## how to use?
-
 ### perf list
-
 显示可以在 perf 命令中使用 -e 选项选择的各种符号事件类型。
 
 ```shell
@@ -46,17 +43,14 @@ List of pre-defined events (to be used in -e):
 ```
 
 ### perf top
-
 实时生成展示系统性能统计信息
 
 #### 语法
-
 ```shell
 perf top [-e <EVENT> | --event=EVENT] [<option>]
 ```
 
 #### 可选参数
-
 ```shell
 -e：指定性能事件
 
@@ -102,11 +96,9 @@ callee 与caller。
 ```
 
 ### perf stat
-
 运行命令采集性能统计信息
 
 #### 语法
-
 ```shell
 perf stat [-e <EVENT> | --event=EVENT] [-a] <command>
 perf stat [-e <EVENT> | --event=EVENT] [-a] — <command> [<options>]
@@ -115,7 +107,6 @@ perf stat report [-i file]
 ```
 
 #### 输出说明
-
 ```shell
 task‐clock 事件表示目标任务真正占用处理器的时间，单位是毫秒。也称任务执行时间
 
@@ -137,7 +128,6 @@ XXX seconds time elapsed系程序持续时间
 ```
 
 #### 可选参数
-
 ```shell
 -e：选择性能事件
 
@@ -159,18 +149,15 @@ XXX seconds time elapsed系程序持续时间
 ```
 
 ### perf record
-
 记录一段时间内的性能统计信息
 
 #### 语法
-
 ```shell
 perf record [-e <EVENT> | --event=EVENT] [-a] <command>
 perf record [-e <EVENT> | --event=EVENT] [-a] — <command> [<options>]
 ```
 
 #### 可选参数
-
 ```shell
  -e：选择性能事件
 
@@ -194,17 +181,14 @@ perf record [-e <EVENT> | --event=EVENT] [-a] — <command> [<options>]
 ```
 
 ### perf report
-
 读取perf record生成的数据文件，并显示分析数据
 
 #### 语法
-
 ```shell
 perf report [-i <file> | --input=file]
 ```
 
 #### 可选参数
-
 ```shell
 -i：输入的数据文件
 
