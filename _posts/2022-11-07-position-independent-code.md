@@ -7,3 +7,4 @@ keywords: ipc, linux
 ---
 
 ## 概念
+可以加载而无需重定位的代码称为位置无关代码（Position-Independent Code, IPC）
