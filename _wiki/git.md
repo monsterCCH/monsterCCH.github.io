@@ -697,3 +697,20 @@ git config --add oh-my-zsh.hide-status 1
 # 恢复显示
 git config --remove-section oh-my-zsh
 ```
+## 解决 Git 不同平台换行符问题
+GNU/Linux和Mac OS使用换行(LF)或新行作为行结束字符，而Windows使用换行和回车(LFCR)组合来表示行结束字符。
+
+为了避免这些行结尾的差异的不必要提交，我们必须配置Git客户端写入与Git仓库使用相同的行结束符。
+
+对于Windows系统，可以将Git客户端配置为将行结束符转换为CRLF格式，同时退出，并在提交操作时将其转换回LF格式。以下可根据需要来设置。
+
+```shell
+# 提交时转换为LF，检出时转换为CRLF
+git config --global core.autocrlf true
+
+# 提交时转换为LF，检出时不转换
+git config --global core.autocrlf input
+
+# 提交检出均不转换
+git config --global core.autocrlf false
+```

@@ -3,7 +3,7 @@ layout: post
 title: 数学基础知识点
 categories: match, algorithm
 description: 数学知识点概念
-keywords: match, concept
+keywords: math, concept
 mathjax: true
 ---
 ## 指数

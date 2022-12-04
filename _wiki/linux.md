@@ -517,3 +517,9 @@ timedatectl命令将会打印系统的时区和所在时区的当前时间。并
 timedatectl list-timezones | grep -i shang
 sudo timedatectl set-timezone Asia/Shanghai
 ```
+
+### unix 转化换行符
+```shell
+# 转化当前目录所有文件
+find -type f | xargs dos2unix
+```
