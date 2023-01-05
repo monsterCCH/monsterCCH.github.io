@@ -15,6 +15,8 @@ keywords: gdb,debug
  */
 p *array@length
 ```
+## 设置单线程调试
+`set scheduler-locking on`
 
 ## 打印完整字符串
 
@@ -122,5 +124,3 @@ ps：
        w表示四字节，
        g表示八字节
 ```
-
-
