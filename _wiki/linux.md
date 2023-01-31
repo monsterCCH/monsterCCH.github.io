@@ -523,3 +523,8 @@ sudo timedatectl set-timezone Asia/Shanghai
 # 转化当前目录所有文件
 find -type f | xargs dos2unix
 ```
+
+### 删除 tar 解压后的文件
+```shell
+tar -tf big-bag.tar.gz | xargs rm -rf
+```
