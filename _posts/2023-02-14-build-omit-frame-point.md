@@ -109,7 +109,7 @@ Disassembly of section .text:
 
 ## extend
 
-![cpu_register.png](../images/posts/OS/cpu_register.png)
+![cpu_register.png](../images/posts/OS/register-map.png)
 
 ## refer
 [-fomit-frame-pointer的作用](https://blog.csdn.net/blueOceanindream/article/details/6260695?spm=1001.2101.3001.6650.5&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-5-6260695-blog-8462414.pc_relevant_recovery_v2&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-5-6260695-blog-8462414.pc_relevant_recovery_v2&utm_relevant_index=6)
