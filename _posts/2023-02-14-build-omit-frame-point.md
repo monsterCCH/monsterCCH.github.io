@@ -104,12 +104,134 @@ Disassembly of section .text:
 
 ```
 
+arm64版本 no_omit-frame-pointer
+```shell
+❯ arm-linux-gnueabi-gcc -c test.c -o arm_no_SFP.o
+❯ arm-linux-gnueabi-objdump -D arm_no_SFP.o
+
+arm_with_SFP.o:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <test>:
+   0:   e92d4800        push    {fp, lr}
+   4:   e28db004        add     fp, sp, #4
+   8:   e24dd008        sub     sp, sp, #8
+   c:   e50b0008        str     r0, [fp, #-8]
+  10:   e51b1008        ldr     r1, [fp, #-8]
+  14:   e59f000c        ldr     r0, [pc, #12]   ; 28 <test+0x28>
+  18:   ebfffffe        bl      0 <printf>
+  1c:   e1a00000        nop                     ; (mov r0, r0)
+  20:   e24bd004        sub     sp, fp, #4
+  24:   e8bd8800        pop     {fp, pc}
+  28:   00000000        andeq   r0, r0, r0
+
+Disassembly of section .rodata:
+
+00000000 <.rodata>:
+   0:   74736574        ldrbtvc r6, [r3], #-1396        ; 0xfffffa8c
+   4:   0a732520        beq     1cc948c <test+0x1cc948c>
+        ...
+
+Disassembly of section .comment:
+
+00000000 <.comment>:
+   0:   43434700        movtmi  r4, #14080      ; 0x3700
+   4:   5528203a        strpl   r2, [r8, #-58]! ; 0xffffffc6
+   8:   746e7562        strbtvc r7, [lr], #-1378        ; 0xfffffa9e
+   c:   31312075        teqcc   r1, r5, ror r0
+  10:   302e332e        eorcc   r3, lr, lr, lsr #6
+  14:   6275312d        rsbsvs  r3, r5, #1073741835     ; 0x4000000b
+  18:   75746e75        ldrbvc  r6, [r4, #-3701]!       ; 0xfffff18b
+  1c:   32327e31        eorscc  r7, r2, #784    ; 0x310
+  20:   2934302e        ldmdbcs r4!, {r1, r2, r3, r5, ip, sp}
+  24:   2e313120        rsfcssp f3, f1, f0
+  28:   00302e33        eorseq  r2, r0, r3, lsr lr
+
+Disassembly of section .ARM.attributes:
+
+00000000 <.ARM.attributes>:
+   0:   00002941        andeq   r2, r0, r1, asr #18
+   4:   61656100        cmnvs   r5, r0, lsl #2
+   8:   01006962        tsteq   r0, r2, ror #18
+   c:   0000001f        andeq   r0, r0, pc, lsl r0
+  10:   00543505        subseq  r3, r4, r5, lsl #10
+  14:   01080306        tsteq   r8, r6, lsl #6
+  18:   04120109        ldreq   r0, [r2], #-265 ; 0xfffffef7
+  1c:   01150114        tsteq   r5, r4, lsl r1
+  20:   01180317        tsteq   r8, r7, lsl r3
+  24:   021a0119        andseq  r0, sl, #1073741830     ; 0x40000006
+  28:   Address 0x0000000000000028 is out of bounds.
+```
+omit-frame-pointer
+```shell
+❯ arm-linux-gnueabi-gcc -fomit-frame-pointer -c test.c -o arm_with_SFP.o
+❯ arm-linux-gnueabi-objdump -D arm_with_SFP.o
+
+arm_with_SFP.o:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <test>:
+   0:   e52de004        push    {lr}            ; (str lr, [sp, #-4]!)
+   4:   e24dd00c        sub     sp, sp, #12
+   8:   e58d0004        str     r0, [sp, #4]
+   c:   e59d1004        ldr     r1, [sp, #4]
+  10:   e59f000c        ldr     r0, [pc, #12]   ; 24 <test+0x24>
+  14:   ebfffffe        bl      0 <printf>
+  18:   e1a00000        nop                     ; (mov r0, r0)
+  1c:   e28dd00c        add     sp, sp, #12
+  20:   e49df004        pop     {pc}            ; (ldr pc, [sp], #4)
+  24:   00000000        andeq   r0, r0, r0
+
+Disassembly of section .rodata:
+
+00000000 <.rodata>:
+   0:   74736574        ldrbtvc r6, [r3], #-1396        ; 0xfffffa8c
+   4:   0a732520        beq     1cc948c <test+0x1cc948c>
+        ...
+
+Disassembly of section .comment:
+
+00000000 <.comment>:
+   0:   43434700        movtmi  r4, #14080      ; 0x3700
+   4:   5528203a        strpl   r2, [r8, #-58]! ; 0xffffffc6
+   8:   746e7562        strbtvc r7, [lr], #-1378        ; 0xfffffa9e
+   c:   31312075        teqcc   r1, r5, ror r0
+  10:   302e332e        eorcc   r3, lr, lr, lsr #6
+  14:   6275312d        rsbsvs  r3, r5, #1073741835     ; 0x4000000b
+  18:   75746e75        ldrbvc  r6, [r4, #-3701]!       ; 0xfffff18b
+  1c:   32327e31        eorscc  r7, r2, #784    ; 0x310
+  20:   2934302e        ldmdbcs r4!, {r1, r2, r3, r5, ip, sp}
+  24:   2e313120        rsfcssp f3, f1, f0
+  28:   00302e33        eorseq  r2, r0, r3, lsr lr
+
+Disassembly of section .ARM.attributes:
+
+00000000 <.ARM.attributes>:
+   0:   00002941        andeq   r2, r0, r1, asr #18
+   4:   61656100        cmnvs   r5, r0, lsl #2
+   8:   01006962        tsteq   r0, r2, ror #18
+   c:   0000001f        andeq   r0, r0, pc, lsl r0
+  10:   00543505        subseq  r3, r4, r5, lsl #10
+  14:   01080306        tsteq   r8, r6, lsl #6
+  18:   04120109        ldreq   r0, [r2], #-265 ; 0xfffffef7
+  1c:   01150114        tsteq   r5, r4, lsl r1
+  20:   01180317        tsteq   r8, r7, lsl r3
+  24:   021a0119        andseq  r0, sl, #1073741830     ; 0x40000006
+  28:   Address 0x0000000000000028 is out of bounds.
+
+```
+
 这里把RBP省掉了，RSP兼职了RBP的部分工作（索引临时变量）。
 显而易见，代码难懂了， 代码执行长度缩短了，应该能引起效率的提升。 但是不能用backtrace调试了。
 
 ## extend
 
 ![cpu_register.png](../images/posts/OS/register-map.png)
+gcc 使用 sanitizer 进行分析时，编译选项需要加上 -fno-omit-frame-pointer以便可以对调用栈进行调试
 
 ## refer
 [-fomit-frame-pointer的作用](https://blog.csdn.net/blueOceanindream/article/details/6260695?spm=1001.2101.3001.6650.5&utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-5-6260695-blog-8462414.pc_relevant_recovery_v2&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-5-6260695-blog-8462414.pc_relevant_recovery_v2&utm_relevant_index=6)
