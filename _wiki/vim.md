@@ -6,6 +6,17 @@ description: 个人最常用的 Vim 常用操作。
 keywords: Vim
 ---
 
+### 指定编码
+打开文件时指定编码
+```shell
+vim +set encoding=<编码> <文件名>
+vim +set encoding=utf-8 example.txt
+```
+设置已经打开文件编码
+```shell
+:e ++enc=gbk
+```
+
 ### 移动
 
 **以字（符）为单位**
