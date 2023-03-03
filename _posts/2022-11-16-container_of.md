@@ -15,6 +15,13 @@ keywords: kernel, func
 	const typeof( ((type *)0)->member ) *__mptr = (ptr);	\
 	(type *)( (char *)__mptr - offsetof(type,member) );})
 #define offsetof(TYPE, MEMBER) ((size_t) &((TYPE *)0)->MEMBER)
+
+# 在 c++ 中使用 decltype 代替 typeof
+tips: C++ 中没有 typeof 运算符。虽然大多数编译器已经提供这样的功能已经有一段时间了，但它一直是编译器特定的语言扩展。因此，通常比较两者的行为没有意义，因为 typeof 的行为（如果它存在的话）是非常依赖于平台的。
+
+因为我们现在有一个获取变量/表达式类型的标准方法，所以真的没有理由依赖不可移植的扩展，所以我想说它已经过时了。
+
+另一件要考虑的事情是，如果 typeof 的行为与给定编译器的 decltype 不兼容，则 typeof 扩展可能不会得到太多发展以包含未来的新语言功能（这意味着它可能根本不起作用例如 lambdas）。我不知道目前是否是这种情况，但这是一种明显的可能性
 ```
 
 ## 说明

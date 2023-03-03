@@ -6,7 +6,7 @@ description: linux 网卡名为什么从eth0变为诸如ens33命名
 keywords: eth0, ens33
 ---
 
-## why
+## 概述
 在早期的Linux系统中，网卡命名是通过udev（一个动态设备管理器）和内核的net kernel subsystem（网络内核子系统）自动分配的，命名规则是按照物理设备的顺序来命名的，比如eth0、eth1、eth2等。这种命名方式会出现问题，例如在插拔网卡或者系统升级后，顺序可能会改变，导致网卡的命名混乱，从而影响网络配置。
 
 为了解决这个问题，自Kernel 2.6.32版本开始，Linux内核引入了一种新的网络接口命名方案，即Consistent Network Device Naming（CNDA，一致性网络设备命名）。这种命名方案基于设备的物理位置和MAC地址，通过识别网卡所在的总线、插槽位置、端口等信息来为其分配一个唯一的名字。
@@ -23,7 +23,7 @@ keywords: eth0, ens33
 
 总之，CNDA采用了一种更加可靠和可预测的命名方式，避免了网卡命名混乱的问题，提高了系统的稳定性和可靠性。
 
-## example
+## 示例
 `ens33`
 
 这个命名样例表示的是一个以太网网卡，它连接到了第33个接口。其中，en表示以太网，s表示该设备连接到PCI Express总线上，33表示该设备连接到PCI Express总线上的第33个端口。
@@ -34,3 +34,22 @@ keywords: eth0, ens33
 
 `enp2s0f0`
 这个命名样例表示的是一个以太网网卡，它所在的总线位置是PCI 0000:02:00.0，它连接到了该设备的第0个端口的第0个功能。其中，en表示以太网，p2表示该设备连接到PCI 0000:02:00.0这个插槽，s0表示该设备连接到该插槽上的第0个端口，f0表示该设备连接到该端口的第0个功能。
+
+## 将命名还原为eth0
+
+### 修改配置文件/etc/default/gruboffsetof
+添加配置信息如下
+```shell
+GRUB_CMDLINE_LINUX="net.ifnames=0 biosdevname=0" 
+```
+
+### 更新GRUB
+```shell
+update-grub
+grub2-mkconfig -o /boot/grub2/grub.cfg
+```
+
+### 重启系统
+```shell
+reboot
+```
