@@ -81,8 +81,17 @@ General setup  --->
 
 #### 编译
 ```shell
-make bzImage -j8
+# 编译内核主体
+make bzImage -j16
+
+# 编译内核模块
+make modules -j16
+# 去除 debug 调试信息
+make INSTALL_MOD_STRIP=1 modules_install
+# 编译成 deb 包
+make INSTALL_MOD_STRIP=1 deb-pkg
 ```
+
 编译报错解决
 ```shell
 如果报错 canonical-certs.pem：
@@ -102,6 +111,41 @@ make: *** [Makefile:1868: certs] Error 2
 在命令行中执行：
 
 scripts/config --disable SYSTEM_REVOCATION_KEYS
+```
+
+#### 安装内核
+
+```shell
+# 安装内核模块
+make modules_install
+
+# 安装内核
+make install
+# or
+mkinitramfs /lib/modules/内核版本号 -o /boot/initrd.img-内核版本号-generic
+cp /usr/src/linux-版本号/arch/x86/boot/bzImage    /boot/vmlinuz-版本号-generic
+cp /usr/src/linux-版本号/System.map    /boot/System.map-版本号
+update-grub2
+
+# 验证测试
+cat /boot/grub/grub.cfg
+```
+
+### 切换内核版本
+
+```shell
+# 查看当前使用的内核版本
+uname -r
+
+# 查看系统当前安装有哪些版本的内核
+dpkg --get-selections | grep linux
+# 状态为deinstall即为已卸载，去除配置文件可以使用 apt purge 删除，之后update-grub 即可(根据情况选择grub/grub2)
+
+# 查看启动顺序，即内核选用的优先级顺序
+grep menuentry /boot/grub/grub.cfg
+
+# 确定默认使用需要的那个版本的内核，修改前记得先备份
+sed -i 's/5.4.0-109-generic/5.4.178/g' /boot/grub/grub.cfg
 ```
 
 ### 下载现有内核镜像
