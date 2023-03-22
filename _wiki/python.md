@@ -120,3 +120,21 @@ pip install torch transformers -i https://pypi.mirrors.ustc.edu.cn/simple/
 也可手动执行
 `pip3 config set global.index-url https://pypi.mirrors.ustc.edu.cn/simple/` 
 写入配置到`/root/.config/pip/pip.conf`后永久生效
+
+### 查找包安装路径
+```shell
+pip list # 获取已安装的包列表
+
+pip show <package name> 
+
+Name: torch
+Version: 2.0.0
+Summary: Tensors and Dynamic neural networks in Python with strong GPU acceleration
+Home-page: https://pytorch.org/
+Author: PyTorch Team
+Author-email: packages@pytorch.org
+License: BSD-3
+Location: /usr/local/lib/python3.10/dist-packages
+Requires: filelock, jinja2, networkx, nvidia-cublas-cu11, nvidia-cuda-cupti-cu11, nvidia-cuda-nvrtc-cu11, nvidia-cuda-runtime-cu11, nvidia-cudnn-cu11, nvidia-cufft-cu11, nvidia-curand-cu11, nvidia-cusolver-cu11, nvidia-cusparse-cu11, nvidia-nccl-cu11, nvidia-nvtx-cu11, sympy, triton, typing-extensions
+Required-by: triton
+```
