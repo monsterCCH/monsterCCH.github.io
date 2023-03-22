@@ -105,3 +105,18 @@ npm ERR!     /Users/username/.npm/_logs/2020-02-19T14_14_34_524Z-debug.log
 解决方法：
 
 删除 /usr/local/lib/python3.7/site-packages/ 文件夹下的 sitecustomize.pyc，将 sitecustomize.py 文件重名为 sitecustomize.py~，安装成功之后再改回来。
+
+### pip 下载速度过慢
+```shell
+pip install torch transformers -i https://pypi.mirrors.ustc.edu.cn/simple/
+```
+-i 添加自选镜像源
+
+可选：
+* https://pypi.tuna.tsinghua.edu.cn/simple/  清华
+* https://pypi.mirrors.ustc.edu.cn/simple/ 中科大
+* https://mirrors.aliyun.com/pypi/simple/ 阿里云
+
+也可手动执行
+`pip3 config set global.index-url https://pypi.mirrors.ustc.edu.cn/simple/` 
+写入配置到`/root/.config/pip/pip.conf`后永久生效
