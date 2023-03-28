@@ -113,7 +113,7 @@ CPU内部的寄存器中，有一种特殊的寄存器（对于不同的CPU可�
 * 用来控制CPU的相关工作方式
 
 32位标志寄存器示意图如下：
-![flag_register.png](../images/posts/OS/flag_register.png)
+![flag_register.png](/images/posts/OS/flag_register.png)
 
 汇编语言中常见的标志位: CF, PF, AF, ZF, SF,TF,IF,DF, OF
 

@@ -4,7 +4,6 @@ title: conda 使用指南
 categories: env
 description: conda 使用指南
 keywords: conda
-topmost: true
 ---
 
 ## conda环境激活、退出、创建、删除

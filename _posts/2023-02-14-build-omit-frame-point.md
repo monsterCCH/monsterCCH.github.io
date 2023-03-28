@@ -230,7 +230,7 @@ Disassembly of section .ARM.attributes:
 
 ## extend
 
-![cpu_register.png](../images/posts/OS/register-map.png)
+![cpu_register.png](/images/posts/OS/register-map.png)
 gcc 使用 sanitizer 进行分析时，编译选项需要加上 -fno-omit-frame-pointer以便可以对调用栈进行调试
 
 ## refer
